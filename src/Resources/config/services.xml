@@ -25,6 +25,7 @@
             <argument/>
             <argument/>
             <argument type="service" id="typesense.transformer.entity"/>
+            <argument/> <!-- collection prefix -->
         </service>
 
         <service id="typesense.collection" class="Typesense\Bundle\ORM\Mapping\TypesenseCollection" public="true" abstract="true">

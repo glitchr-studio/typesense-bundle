@@ -66,6 +66,33 @@ class ConfigurationTest extends TestCase
         $this->assertSame(['+'], $config['mappings']['article']['symbols_to_index']);
     }
 
+    /**
+     * No prefix unless one is asked for: an application that never heard
+     * of the option keeps the collection names it has always had.
+     */
+    public function testCollectionPrefixDefaultsToAnEmptyString(): void
+    {
+        $this->assertSame('', $this->process([])['collection_prefix']);
+    }
+
+    public function testCollectionPrefixIsAccepted(): void
+    {
+        $config = $this->process([['collection_prefix' => 'test_']]);
+
+        $this->assertSame('test_', $config['collection_prefix']);
+    }
+
+    /**
+     * The usual way to set it: once per environment, each `when@<env>`
+     * block being one more config array to merge — the last one wins.
+     */
+    public function testCollectionPrefixOfALaterConfigOverridesTheEarlierOne(): void
+    {
+        $config = $this->process([['collection_prefix' => ''], ['collection_prefix' => 'demo_']]);
+
+        $this->assertSame('demo_', $config['collection_prefix']);
+    }
+
     public function testGetTreeBuilderReturnsTheBuilderCreatedByGetConfigTreeBuilder(): void
     {
         $configuration = new Configuration();

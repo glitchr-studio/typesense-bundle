@@ -12,6 +12,11 @@ class TypesenseMetadataInfo
     public string $name;
 
     /**
+     * @var string
+     */
+    public string $prefix = '';
+
+    /**
      * @var ?string
      */
     public ?string $class;

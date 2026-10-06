@@ -17,6 +17,7 @@ use Typesense\Bundle\ORM\TypesenseManager;
 class TypesenseExtension extends Extension
 {
     private string $defaultConnection;
+    private string $collectionPrefix;
 
     public function load(array $configs, ContainerBuilder $container): void
     {
@@ -32,6 +33,7 @@ class TypesenseExtension extends Extension
         $this->setConfiguration($container, $typesense, $configuration->getTreeBuilder()->getRootNode()->getNode()->getName());
 
         $this->defaultConnection = $typesense['default_connection'] ?? 'default';
+        $this->collectionPrefix = (string) ($typesense['collection_prefix'] ?? '');
         $this->initialize($container);
 
         foreach ($typesense['connections'] ?? [] as $connectionName => $configuration) {
@@ -126,6 +128,7 @@ class TypesenseExtension extends Extension
         $definition = new ChildDefinition('typesense.metadata');
         $definition->replaceArgument(0, $name);
         $definition->replaceArgument(1, $collection);
+        $definition->replaceArgument(3, $this->collectionPrefix);
 
         $container->setDefinition($id, $definition);
         $definition->addTag('typesense.metadata');

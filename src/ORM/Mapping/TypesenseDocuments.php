@@ -35,7 +35,7 @@ class TypesenseDocuments
             throw new TypesenseException($this->connection->getStatus(), $this->connection->getStatusCode());
         }
 
-        $documents = $this->connection?->getCollections()[$this->metadata->getName()]->documents;
+        $documents = $this->connection?->getCollections()[$this->metadata->getCollectionName()]->documents;
 
         try {
             return $documents[$id]?->delete();
@@ -50,7 +50,7 @@ class TypesenseDocuments
             throw new TypesenseException($this->connection->getStatus(), $this->connection->getStatusCode());
         }
 
-        $collectionName = $this->metadata->getName();
+        $collectionName = $this->metadata->getCollectionName();
         $collection = $this->connection?->getCollections()[$collectionName];
         $documents = $collection->documents;
 
@@ -67,7 +67,7 @@ class TypesenseDocuments
             throw new TypesenseException($this->connection->getStatus(), $this->connection->getStatusCode());
         }
 
-        $collectionName = $this->metadata->getName();
+        $collectionName = $this->metadata->getCollectionName();
         $collection = $this->connection?->getCollections()[$collectionName];
         $documents = $collection->documents;
 
@@ -84,7 +84,7 @@ class TypesenseDocuments
             throw new TypesenseException($this->connection->getStatus(), $this->connection->getStatusCode());
         }
 
-        $collectionName = $this->metadata->getName();
+        $collectionName = $this->metadata->getCollectionName();
         $collection = $this->connection?->getCollections()[$collectionName];
         $documents = $collection->documents;
 
@@ -101,7 +101,7 @@ class TypesenseDocuments
             throw new TypesenseException($this->connection->getStatus(), $this->connection->getStatusCode());
         }
 
-        $collectionName = $this->metadata->getName();
+        $collectionName = $this->metadata->getCollectionName();
         $collection = $this->connection?->getCollections()[$collectionName];
         $documents = $collection->documents;
 
@@ -122,7 +122,7 @@ class TypesenseDocuments
             return [];
         }
 
-        $collectionName = $this->metadata->getName();
+        $collectionName = $this->metadata->getCollectionName();
         $collection = $this->connection?->getCollections()[$collectionName];
         $documents = $collection->documents;
 

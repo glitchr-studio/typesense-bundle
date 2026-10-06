@@ -87,6 +87,66 @@ class TypesenseExtensionTest extends TestCase
         ]], $container);
     }
 
+    /**
+     * The prefix is the metadata's business only (it is what names the
+     * collection on the server): the service ids an application autowires
+     * — typesense.finder.article and friends — stay on the mapping key.
+     */
+    public function testCollectionPrefixReachesTheMetadataAndLeavesServiceIdsAlone(): void
+    {
+        $container = $this->makeContainer();
+
+        (new TypesenseExtension())->load([[
+            'collection_prefix' => 'test_',
+            'connections' => [
+                'default' => ['secret' => 'a'],
+            ],
+            'mappings' => [
+                'article' => ['class' => 'App\\Entity\\Article'],
+            ],
+        ]], $container);
+
+        $metadata = $container->getDefinition('typesense.metadata.article');
+        $this->assertSame('article', $metadata->getArgument(0));
+        $this->assertSame('test_', $metadata->getArgument(3));
+        $this->assertSame('test_', $container->getParameter('typesense.collection_prefix'));
+
+        $this->assertTrue($container->hasDefinition('typesense.collection.article'));
+        $this->assertTrue($container->hasDefinition('typesense.finder.article'));
+        $this->assertFalse($container->hasDefinition('typesense.finder.test_article'));
+    }
+
+    public function testCollectionPrefixIsEmptyWhenNotConfigured(): void
+    {
+        $container = $this->makeContainer();
+
+        (new TypesenseExtension())->load([[
+            'mappings' => [
+                'article' => ['class' => 'App\\Entity\\Article'],
+            ],
+        ]], $container);
+
+        $this->assertSame('', $container->getDefinition('typesense.metadata.article')->getArgument(3));
+    }
+
+    /**
+     * `collection_prefix: ~` in YAML is null, and TypesenseMetadata takes a
+     * string: null means "no prefix", not a TypeError at boot.
+     */
+    public function testANullCollectionPrefixMeansNoPrefix(): void
+    {
+        $container = $this->makeContainer();
+
+        (new TypesenseExtension())->load([[
+            'collection_prefix' => null,
+            'mappings' => [
+                'article' => ['class' => 'App\\Entity\\Article'],
+            ],
+        ]], $container);
+
+        $this->assertSame('', $container->getDefinition('typesense.metadata.article')->getArgument(3));
+    }
+
     public function testSetConfigurationFlattensNestedArraysIntoDotNotationParameters(): void
     {
         $container = new ContainerBuilder();

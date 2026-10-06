@@ -38,10 +38,17 @@ class ListCommand extends Command
         $io->newLine();
         $collectionName = $input->getOption('collection');
 
+        // A mapping key is also accepted: it is listed under the name it has
+        // on the server, behind the configured `collection_prefix`.
+        $collectionNames = [$collectionName];
+        if ($collectionName && array_key_exists($collectionName, $this->typesenseManager->getCollections())) {
+            $collectionNames[] = $this->typesenseManager->getCollection($collectionName)->metadata()->getCollectionName();
+        }
+
         foreach ($this->typesenseManager->getConnections() as $connectionName => $connection) {
             $output->writeln(sprintf('<info>Connection Typesense </info> "<comment>%s</comment>": ' . ($connection->getHealth() ? 'OK' : 'BAD STATE'), $connectionName));
             foreach ($connection->getCollections()->retrieve() as $collection) {
-                if ($collectionName && $collection['name'] != $collectionName) {
+                if ($collectionName && !in_array($collection['name'], $collectionNames)) {
                     continue;
                 }
 

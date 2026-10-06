@@ -106,13 +106,13 @@ class TypesenseCollection
             if (!$sr->hasHeader('collection')) {
                 throw new TypesenseException('Request must have the key : `collection` in order to perform multiSearch', 500);
             }
-            $searches[] = $sr->getHeaders();
+            $searches[] = $this->prefix($sr->getHeaders());
         }
 
         try {
             return $this->client()->getMultiSearch()->perform(
                 ['searches' => $searches],
-                $commonSearchParams ? $commonSearchParams->getHeaders() : []
+                $commonSearchParams ? $this->prefix($commonSearchParams->getHeaders()) : []
             );
         } catch (TypesenseClientError|HttpClientException $e) {
             throw new TypesenseException($e->getMessage(), $e->getCode(), $e);
@@ -167,7 +167,7 @@ class TypesenseCollection
 
         try {
         
-            return $this->client()->getCollections()[$this->name()]?->delete();
+            return $this->client()->getCollections()[$this->metadata->getCollectionName()]?->delete();
         
         } catch (ObjectNotFound) {
 
@@ -175,5 +175,18 @@ class TypesenseCollection
         
             throw new TypesenseException($e->getMessage(), $e->getCode(), $e);
         }
+    }
+
+    /**
+     * A multiSearch names its collections itself, by their mapping key:
+     * the configured `collection_prefix` is put in front here.
+     */
+    private function prefix(array $headers): array
+    {
+        if ('' !== $this->metadata->getPrefix() && isset($headers['collection'])) {
+            $headers['collection'] = $this->metadata->getPrefix() . $headers['collection'];
+        }
+
+        return $headers;
     }
 }

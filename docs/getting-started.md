@@ -93,12 +93,33 @@ persisted, updated, or removed through Doctrine.
 ## 4. Create the collection and backfill existing rows
 
 ```bash
-# Drops and recreates every configured collection on every connection —
-# safe for a fresh/dev Typesense instance, destructive on a shared one.
+# Drops and recreates the collection of every configured mapping — and only
+# those: whatever else lives on the server is left alone. (`--all` first
+# deletes EVERY collection on every connection, as the command always did
+# before that option existed; destructive on a shared server.)
 bin/console typesense:create
 
 # Backfills every existing Article row into the (now-empty) collection.
 bin/console typesense:action upsert
+```
+
+## 4b. Several environments on one server
+
+A collection is named after its mapping key (`article` above). When dev,
+test or a demo share one Typesense server, give each its own
+`collection_prefix` — the mapping, the finder service
+(`typesense.finder.article`) and `getFinder('article')` stay the same, only
+the collection's name on the server changes:
+
+```yaml
+# config/packages/typesense.yaml (continued)
+when@test:
+    typesense:
+        collection_prefix: 'test_'    # "test_article" on the server
+
+when@demo:
+    typesense:
+        collection_prefix: 'demo_'    # "demo_article" on the server
 ```
 
 ## 5. Search

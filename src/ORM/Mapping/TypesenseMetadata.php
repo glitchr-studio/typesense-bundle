@@ -13,9 +13,10 @@ class TypesenseMetadata extends TypesenseMetadataInfo
     protected TransformerInterface $transformer;
     protected ObjectManager $objectManager;
 
-    public function __construct(string $name, array $configuration, TransformerInterface $transformer)
+    public function __construct(string $name, array $configuration, TransformerInterface $transformer, string $prefix = '')
     {
         $this->name = $name;
+        $this->prefix = $prefix;
         $this->class = $configuration['class'] ?? null;
         $this->transformer = $transformer;
         $this->objectManager = $transformer->getObjectManager();
@@ -67,10 +68,26 @@ class TypesenseMetadata extends TypesenseMetadataInfo
         return explode("__", $this->name)[0];
     }
 
+    public function getPrefix(): string
+    {
+        return $this->prefix;
+    }
+
+    /**
+     * The collection's name on the Typesense server: getName() behind the
+     * configured `collection_prefix`. getName() itself stays the mapping
+     * key — what TypesenseManager, the finders and the service ids are
+     * keyed by — so only what is sent to the server goes through here.
+     */
+    public function getCollectionName(): string
+    {
+        return $this->prefix . $this->name;
+    }
+
     public function getConfiguration(): array
     {
         $configuration = [];
-        $configuration['name'] = $this->getName();
+        $configuration['name'] = $this->getCollectionName();
         $configuration['fields'] = $this->fields;
         $configuration['default_sorting_field'] = $this->defaultSortingField;
         $configuration['token_separators'] = $this->tokenSeparators;
@@ -190,7 +207,7 @@ class TypesenseMetadata extends TypesenseMetadataInfo
                     $configuration['token_separators'] = $this->tokenSeparators;
                     $configuration['symbols_to_index'] = $this->symbolsToIndex;
 
-                    $metadata[] = new TypesenseMetadata($this->name . '__' . $subname, $configuration, $this->transformer);
+                    $metadata[] = new TypesenseMetadata($this->name . '__' . $subname, $configuration, $this->transformer, $this->prefix);
                 }
             }
         }

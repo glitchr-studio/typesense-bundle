@@ -52,6 +52,7 @@ return static function (ContainerConfigurator $configurator): void {
             abstract_arg('Index name'),
             abstract_arg('Entity class'),
             service('typesense.transformer.entity'),
+            '', # Collection prefix
         ]);
 
     # Collection definition
