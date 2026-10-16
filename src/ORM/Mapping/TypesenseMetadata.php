@@ -45,7 +45,7 @@ class TypesenseMetadata extends TypesenseMetadataInfo
         $this->addIdentifierColumns();
         $this->addDiscriminatorColumn();
 
-        $id = first($this->fields)->name;
+        $id = ($this->fields[array_key_first($this->fields)] ?? null)?->name;
         foreach ($this->fields as $name => $field) {
             if ($field->identifier && 'id' != $field->name) {
                 $id = $field->name;

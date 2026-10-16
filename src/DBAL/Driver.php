@@ -33,7 +33,7 @@ class Driver
             $secret = $params['secret'] ?? null;
 
             if (!$secret) {
-                if (is_cli()) {
+                if (\PHP_SAPI === 'cli') {
                     throw new TypesenseException('Typesense API Key missing for "' . $this->name . '" connection');
                 }
 

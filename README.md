@@ -115,18 +115,10 @@ ephemeral (`tmpfs`) `typesense/typesense` server alongside it, wired via
 `TYPESENSE_URL`/`TYPESENSE_KEY`. Use this exact setup as the base for a
 `.gitlab-ci.yml`/GitHub Actions job.
 
-Standalone, the suite is not green yet: `src/` calls global helpers
-(`str_strip()`, `is_cli()`, `usort_column()`) that ship with glitchr/omnibase's
-`Resources/Functions.php` (which needs `bcmath`), and uses
-`Psr\SimpleCache\CacheInterface` without requiring `psr/simple-cache`. Until
-those are declared, run it with them supplied:
-
-```bash
-docker compose -f docker-compose.test.yml run --rm \
-    -v /path/to/omnibase/core/src/Resources/Functions.php:/helpers/Functions.php:ro test \
-    sh -c 'docker-php-ext-install bcmath && composer require --dev psr/simple-cache \
-        && php -d auto_prepend_file=/helpers/Functions.php vendor/bin/phpunit'
-```
+The bundle needs nothing from glitchr/omnibase: the suite is green on its own,
+on a bare image without `bcmath`. The image resolves `composer.json` afresh
+(`.dockerignore` leaves out a local `vendor/` and `composer.lock`), as a fresh
+clone would.
 
 ### Inside a host application (dev workflow)
 

@@ -25,6 +25,12 @@
 
 ### Fixed
 
+- The bundle runs without glitchr/omnibase: `src/` called four of its global
+  helpers (`str_strip()`, `is_cli()`, `usort_column()`, `first()`), undefined
+  in any application that does not install it. They are plain PHP now.
+  `psr/simple-cache` is required: `TypesenseFinder` and `TypesenseIndexer`
+  take a `Psr\SimpleCache\CacheInterface` and build a `Psr16Cache`, and
+  symfony/cache does not require it. The standalone suite is green.
 - `docker-compose.test.yml`: the Typesense healthcheck called `curl`, which
   the `typesense/typesense` image does not have, so the test service never
   started. It now asks `/health` through bash's `/dev/tcp`.

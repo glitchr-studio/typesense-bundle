@@ -29,7 +29,7 @@ class Configuration
 
         $this->port = $params['port'] ?? 8108;
 
-        $this->path = str_strip($params['path'] ?? null, '/', '/') ?? '';
+        $this->path = trim((string) ($params['path'] ?? ''), '/');
         $this->path = $this->path ? ("/".$this->path) : '';
 
         $this->secret = $secret;

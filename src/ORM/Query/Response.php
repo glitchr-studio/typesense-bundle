@@ -74,7 +74,7 @@ class Response
             foreach($facetCounts as &$facetCount) {
                 $facetCount['counts'] ??= [];
                 $facetCountCounts = &$facetCount['counts'];
-                usort_column($facetCountCounts, 'value', fn($f1, $f2) => strcmp($f1, $f2));
+                usort($facetCountCounts, fn ($f1, $f2) => strcmp((string) ($f1['value'] ?? ''), (string) ($f2['value'] ?? '')));
             }
         }
 
