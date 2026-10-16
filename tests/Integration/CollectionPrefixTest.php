@@ -22,17 +22,15 @@ use Typesense\Bundle\ORM\TypesenseManager;
  * Connection/TypesenseCollection/CreateCommand, against a real server: it
  * is the bundle's naming of the collections that is under test — two
  * "environments" (the same mapping, without and with a
- * `collection_prefix`) sharing one server, and `typesense:create` run by
- * one of them.
- *
- * `typesense:create --all` is deliberately NOT run here: it empties the
- * whole server, and TYPESENSE_URL may well point at one somebody cares
- * about. The Unit/ suite covers it with mocks.
+ * `collection_prefix`) sharing one server, plus a collection the bundle
+ * knows nothing about (another application's, created straight through the
+ * client), and `typesense:create` run by one of them.
  */
 class CollectionPrefixTest extends TestCase
 {
     private Connection $connection;
     private string $name;
+    private string $foreign;
 
     protected function setUp(): void
     {
@@ -56,13 +54,14 @@ class CollectionPrefixTest extends TestCase
         }
 
         $this->name = 'typesense_bundle_test_' . bin2hex(random_bytes(4));
+        $this->foreign = 'typesense_bundle_test_other_app_' . bin2hex(random_bytes(4));
     }
 
     protected function tearDown(): void
     {
-        foreach (['', 'test_'] as $prefix) {
+        foreach ([$this->name, 'test_' . $this->name, $this->foreign] as $name) {
             try {
-                $this->connection->getCollection($prefix . $this->name)->delete();
+                $this->connection->getCollection($name)->delete();
             } catch (\Throwable $e) {
                 // Already gone / never created — fine.
             }
@@ -123,6 +122,13 @@ class CollectionPrefixTest extends TestCase
         $dev->create();
         $dev->documents()->create(['id' => '1', 'title' => 'Written by dev', 'rank' => 1], []);
 
+        // Another application on the same server, not mapped here at all.
+        $this->connection->getCollections()->create([
+            'name' => $this->foreign,
+            'fields' => [['name' => 'label', 'type' => 'string']],
+        ]);
+        $this->connection->getDocuments($this->foreign)->create(['id' => '1', 'label' => 'Not ours']);
+
         // The test environment (re)builds its index...
         $this->runCreateCommand($test);
         $test->documents()->upsert(['id' => '1', 'title' => 'Written by test', 'rank' => 1], []);
@@ -132,6 +138,7 @@ class CollectionPrefixTest extends TestCase
         $this->assertContains('test_' . $this->name, $this->serverCollections());
         $this->assertSame(['Written by dev'], $this->titles($dev));
         $this->assertSame(['Written by test'], $this->titles($test));
+        $this->assertForeignUntouched();
 
         // Run again, typesense:create empties its own collection (dropped
         // and recreated), and still nobody else's.
@@ -139,11 +146,26 @@ class CollectionPrefixTest extends TestCase
 
         $this->assertSame([], $this->titles($test));
         $this->assertSame(['Written by dev'], $this->titles($dev));
+        $this->assertForeignUntouched();
 
         // Same for a plain delete(): the prefixed collection goes, alone.
         $test->delete();
 
         $this->assertNotContains('test_' . $this->name, $this->serverCollections());
         $this->assertSame(['Written by dev'], $this->titles($dev));
+        $this->assertForeignUntouched();
+
+        // And the unprefixed environment's own typesense:create spares
+        // the other application too.
+        $this->runCreateCommand($dev);
+
+        $this->assertSame([], $this->titles($dev));
+        $this->assertForeignUntouched();
+    }
+
+    private function assertForeignUntouched(): void
+    {
+        $this->assertContains($this->foreign, $this->serverCollections());
+        $this->assertSame('Not ours', $this->connection->getDocument($this->foreign, '1')->retrieve()['label']);
     }
 }

@@ -58,31 +58,24 @@ when@test:
 
 `bin/console typesense:create` drops and recreates the collections of the
 configured mappings (under their `collection_prefix`), and nothing else.
-Whatever else lives on the server — another application's collections,
-another environment's, one created through the client directly — is left
-alone.
-
-```bash
-bin/console typesense:create          # this application's collections only
-bin/console typesense:create --all    # DESTRUCTIVE: the whole server first
-```
-
-`--all` first deletes **every** collection found on each configured
-connection, mapped or not, then creates the mapped ones. Only use it on a
-server that belongs to this application and this environment alone.
+The server is never asked what else it holds: another application's
+collections, another environment's, one created through the client
+directly are left alone. There is no option to sweep the whole server.
 
 ### Upgrading: `typesense:create` used to empty the server
 
-Until this change `typesense:create` always behaved like `--all`. If
-nothing but this application's mappings lives on the server, nothing
+Before October 2026 (2.0 branch), `typesense:create` started by deleting
+**every** collection found on each configured connection, mapped or not.
+If nothing but this application's mappings lives on the server, nothing
 changes for you: the same collections are dropped and recreated. Two cases
 do differ:
 
-- You relied on it to wipe the server (a reset script, a CI job): add
-  `--all`.
+- You relied on it to wipe the server (a reset script, a CI job): delete
+  the collections yourself (Typesense's `DELETE /collections/<name>`), or
+  start the server on an empty data directory.
 - A mapping was renamed or removed, or a discriminator value dropped: the
   collection it used to have is no longer swept away as a side effect, and
-  stays on the server until it is deleted (`--all`, or by hand).
+  stays on the server until it is deleted by hand.
 
 The other commands were already scoped to the mappings
 (`typesense:action`, `typesense:update`) or read-only (`typesense:list`,
@@ -121,6 +114,19 @@ as its own root package — no host Symfony app needed) and starts a real,
 ephemeral (`tmpfs`) `typesense/typesense` server alongside it, wired via
 `TYPESENSE_URL`/`TYPESENSE_KEY`. Use this exact setup as the base for a
 `.gitlab-ci.yml`/GitHub Actions job.
+
+Standalone, the suite is not green yet: `src/` calls global helpers
+(`str_strip()`, `is_cli()`, `usort_column()`) that ship with glitchr/omnibase's
+`Resources/Functions.php` (which needs `bcmath`), and uses
+`Psr\SimpleCache\CacheInterface` without requiring `psr/simple-cache`. Until
+those are declared, run it with them supplied:
+
+```bash
+docker compose -f docker-compose.test.yml run --rm \
+    -v /path/to/omnibase/core/src/Resources/Functions.php:/helpers/Functions.php:ro test \
+    sh -c 'docker-php-ext-install bcmath && composer require --dev psr/simple-cache \
+        && php -d auto_prepend_file=/helpers/Functions.php vendor/bin/phpunit'
+```
 
 ### Inside a host application (dev workflow)
 

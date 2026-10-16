@@ -94,9 +94,7 @@ persisted, updated, or removed through Doctrine.
 
 ```bash
 # Drops and recreates the collection of every configured mapping — and only
-# those: whatever else lives on the server is left alone. (`--all` first
-# deletes EVERY collection on every connection, as the command always did
-# before that option existed; destructive on a shared server.)
+# those: whatever else lives on the server is left alone.
 bin/console typesense:create
 
 # Backfills every existing Article row into the (now-empty) collection.

@@ -6,6 +6,7 @@ namespace Typesense\Bundle\Tests\Unit\Command;
 
 use PHPUnit\Framework\TestCase;
 use Psr\SimpleCache\CacheInterface;
+use Symfony\Component\Console\Exception\InvalidOptionException;
 use Symfony\Component\Console\Tester\CommandTester;
 use Typesense\Bundle\Command\CreateCommand;
 use Typesense\Bundle\DBAL\Connection;
@@ -22,12 +23,12 @@ use Typesense\Collections;
  * shared with another application, another environment or a collection
  * created outside the bundle, running it once emptied them all (a
  * development index was lost that way). It now only drops and recreates
- * the collections of its own mappings; the whole-server sweep is still
- * there, behind an explicit --all.
+ * the collections of its own mappings, and the sweep is gone for good
+ * (no --all, no option at all).
  */
 class CreateCommandTest extends TestCase
 {
-    /** Names of the collections deleted straight on the connection (the --all sweep). */
+    /** Names of the collections deleted straight on the connection, bypassing the mappings: must stay empty. */
     private array $swept = [];
 
     /**
@@ -100,36 +101,22 @@ class CreateCommandTest extends TestCase
         $this->assertStringNotContainsString('foreign', $tester->getDisplay());
     }
 
-    public function testAllSweepsEveryCollectionOfTheServerBeforeCreating(): void
-    {
-        [$manager, $collection, $connection, $cache] = $this->makeManager();
-
-        $connection->expects($this->exactly(2))->method('getCollection');
-
-        // Already gone with the sweep: not deleted a second time.
-        $collection->expects($this->never())->method('delete');
-        $collection->expects($this->once())->method('create');
-        $cache->expects($this->once())->method('clear');
-
-        $tester = new CommandTester(new CreateCommand($manager));
-        $exitCode = $tester->execute(['--all' => true]);
-
-        $this->assertSame(0, $exitCode);
-        $this->assertSame(['foreign', 'test_article'], $this->swept);
-        $this->assertStringContainsString('Deleting foreign (foreign in Typesense)', $tester->getDisplay());
-        $this->assertStringContainsString('Creating article', $tester->getDisplay());
-    }
-
     /**
-     * The sweep must be asked for: --all is a plain flag, off unless typed.
+     * The whole-server sweep is gone, not merely hidden: there is no
+     * option left that would bring it back.
      */
-    public function testAllIsAnOptInFlag(): void
+    public function testThereIsNoOptionToSweepTheServer(): void
     {
-        $command = new CreateCommand($this->createStub(TypesenseManager::class));
-        $option = $command->getDefinition()->getOption('all');
+        [$manager, $collection, $connection] = $this->makeManager();
 
-        $this->assertFalse($option->acceptValue());
-        $this->assertFalse($option->getDefault());
-        $this->assertStringContainsString('DESTRUCTIVE', $option->getDescription());
+        $command = new CreateCommand($manager);
+        $this->assertSame([], $command->getDefinition()->getOptions());
+
+        $connection->expects($this->never())->method('getCollections');
+        $connection->expects($this->never())->method('getCollection');
+        $collection->expects($this->never())->method('delete');
+
+        $this->expectException(InvalidOptionException::class);
+        (new CommandTester($command))->execute(['--all' => true]);
     }
 }
