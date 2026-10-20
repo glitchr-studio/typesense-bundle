@@ -95,6 +95,22 @@ class TypesenseMetadataTest extends TestCase
         $this->assertSame('test_article__blog', $subMetadata[0]->getCollectionName());
         $this->assertSame('test_article__blog', $subMetadata[0]->getConfiguration()['name']);
     }
+
+    /**
+     * `infix: true` in a mapping's field (the configuration tree accepts it)
+     * reaches the schema create() sends; a field without it says false.
+     */
+    public function testTheInfixOfAMappingReachesTheSchema(): void
+    {
+        $metadata = new TypesenseMetadata('article', ['fields' => [
+            'title' => ['type' => 'string', 'infix' => true],
+            'state' => ['type' => 'string', 'facet' => true],
+        ]], $this->makeTransformer());
+
+        $fields = $metadata->getConfiguration()['fields'];
+        $this->assertTrue($fields['title']->toArray()['infix']);
+        $this->assertFalse($fields['state']->toArray()['infix']);
+    }
 }
 
 class FixtureBlogArticle extends FixtureArticle

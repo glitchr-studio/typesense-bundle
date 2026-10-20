@@ -33,7 +33,24 @@ class TypesenseMetadataFieldTest extends TestCase
             'identifier' => true,
             'discriminator' => false,
             'facet' => false,
+            'infix' => false,
         ], $field->toArray());
+    }
+
+    /**
+     * An infix index is a property of the schema: Typesense builds it when
+     * the collection is created, and an infix search on a field without one
+     * finds nothing more. toArray() is what create() sends, so the flag must
+     * be in it - it was read from the configuration and then dropped.
+     */
+    public function testInfixIsSentWithTheSchema(): void
+    {
+        $field = new TypesenseMetadataField();
+        $field->name = 'title';
+        $field->type = 'string';
+        $field->infix = true;
+
+        $this->assertTrue($field->toArray()['infix']);
     }
 
     /**

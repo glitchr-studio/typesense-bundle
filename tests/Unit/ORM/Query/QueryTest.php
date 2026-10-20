@@ -156,4 +156,35 @@ class QueryTest extends TestCase
 
         $this->assertFalse($query->hasHeader(Query::INFIX));
     }
+
+    /**
+     * Typesense takes one infix mode per query_by field. infix() pads the
+     * value like facetBy() - "always" for three fields is
+     * "always,always,always" - and used to compare that whole string with
+     * the three allowed values: with more than one query_by field, infix
+     * was silently never sent.
+     */
+    public function testInfixIsGivenOncePerQueryByField(): void
+    {
+        $query = new Query('title, excerpt, content', 'fuj');
+        $query->infix(Query::INFIX_ALWAYS);
+
+        $this->assertSame('always,always,always', $query->getHeader(Query::INFIX));
+    }
+
+    public function testInfixTakesOneModePerField(): void
+    {
+        $query = new Query(['title', 'content']);
+        $query->infix('always,off');
+
+        $this->assertSame('always,off', $query->getHeader(Query::INFIX));
+    }
+
+    public function testInfixIgnoresAListWithAnInvalidMode(): void
+    {
+        $query = new Query(['title', 'content']);
+        $query->infix('always,sometimes');
+
+        $this->assertFalse($query->hasHeader(Query::INFIX));
+    }
 }

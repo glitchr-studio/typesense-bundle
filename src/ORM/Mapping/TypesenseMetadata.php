@@ -37,6 +37,7 @@ class TypesenseMetadata extends TypesenseMetadataInfo
                 $this->fields[$fieldName]->type ??= $field['type'] ?? 'string';
                 $this->fields[$fieldName]->property ??= $field['property'] ?? null;
                 $this->fields[$fieldName]->facet = $field['facet'] ?? false;
+                $this->fields[$fieldName]->infix = $field['infix'] ?? false;
                 $this->fields[$fieldName]->discriminator = false;
                 $this->fields[$fieldName]->identifier = false;
             }

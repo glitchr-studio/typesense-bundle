@@ -268,9 +268,13 @@ class Query extends Request
      */
     public function infix(string $infix): self
     {
+        // One value per query_by field: "always" for three fields is sent as
+        // "always,always,always", and each of them is checked.
         $infix = $this->normalizeString($infix);
-        if (!in_array($infix, self::INFIX_ALLOWED_VALUES)) {
-            return $this;
+        foreach (explode(',', $infix) as $value) {
+            if (!in_array(trim($value), self::INFIX_ALLOWED_VALUES, true)) {
+                return $this;
+            }
         }
 
         return $this->addHeader(self::INFIX, $infix);

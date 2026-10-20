@@ -15,6 +15,12 @@ class TypesenseMetadataField
     public bool $facet;
 
     /**
+     * An infix index on the field (Typesense's `infix: true`): what lets a
+     * search ask for `infix=always|fallback` on it. Sent with the schema.
+     */
+    public bool $infix;
+
+    /**
      * @var ?string
      */
     public ?string $property;
@@ -24,6 +30,7 @@ class TypesenseMetadataField
     public function __construct()
     {
         $this->facet = false;
+        $this->infix = false;
         $this->discriminator = false;
         $this->identifier = false;
         $this->property = null;
@@ -38,6 +45,7 @@ class TypesenseMetadataField
         $configuration['identifier'] = $this->identifier;
         $configuration['discriminator'] = $this->discriminator;
         $configuration['facet'] = $this->facet;
+        $configuration['infix'] = $this->infix;
 
         return $configuration;
     }
