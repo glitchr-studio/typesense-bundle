@@ -75,8 +75,20 @@ final class BareTest extends TestCase
         return $report;
     }
 
+    /**
+     * The autoloader that knows this package: its own vendor/ standalone,
+     * the application's installed in one - not the one that happened to load
+     * Composer's ClassLoader first (symfony/phpunit-bridge's own, in an
+     * application run by simple-phpunit).
+     */
     public static function setUpBeforeClass(): void
     {
-        putenv('TYPESENSE_BUNDLE_AUTOLOAD=' . \dirname((string) (new \ReflectionClass(\Composer\Autoload\ClassLoader::class))->getFileName(), 2) . '/autoload.php');
+        foreach (\Composer\Autoload\ClassLoader::getRegisteredLoaders() as $vendor => $loader) {
+            if ($loader->findFile(TypesenseManager::class)) {
+                putenv('TYPESENSE_BUNDLE_AUTOLOAD=' . $vendor . '/autoload.php');
+
+                return;
+            }
+        }
     }
 }

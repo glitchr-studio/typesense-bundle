@@ -42,6 +42,9 @@ final class SymfonyApplicationTest extends KernelTestCase
 
     public function testNoPackageOfTheOmniFamilyIsInstalled(): void
     {
+        if ('glitchr/typesense-bundle' !== InstalledVersions::getRootPackage()['name']) {
+            $this->markTestSkipped('Installed in an application: its packages are its own.');
+        }
         $this->assertSame([], array_values(preg_grep('~^(?:omni|glitchr/omni|omniscient/)~', InstalledVersions::getInstalledPackages())));
     }
 
