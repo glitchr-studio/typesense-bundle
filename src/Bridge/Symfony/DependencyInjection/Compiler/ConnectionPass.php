@@ -1,6 +1,6 @@
 <?php
 
-namespace Typesense\Bundle\DependencyInjection\Compiler;
+namespace Typesense\Bundle\Bridge\Symfony\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

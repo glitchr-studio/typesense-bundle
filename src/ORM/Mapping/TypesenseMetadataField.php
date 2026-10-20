@@ -27,6 +27,14 @@ class TypesenseMetadataField
 
     public bool $discriminator;
 
+    /**
+     * Further parameters of the field's schema, sent as they are (sort,
+     * optional, locale, stem...); none by default.
+     *
+     * @var array<string, mixed>
+     */
+    public array $options = [];
+
     public function __construct()
     {
         $this->facet = false;
@@ -47,6 +55,6 @@ class TypesenseMetadataField
         $configuration['facet'] = $this->facet;
         $configuration['infix'] = $this->infix;
 
-        return $configuration;
+        return $this->options ? $configuration + $this->options : $configuration;
     }
 }

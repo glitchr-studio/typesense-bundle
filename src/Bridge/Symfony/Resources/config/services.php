@@ -11,13 +11,16 @@ use Typesense\Bundle\ORM\Mapping\TypesenseMetadata;
 use Typesense\Bundle\ORM\Mapping\TypesenseCollection;
 use Typesense\Bundle\ORM\TypesenseFinder;
 use Typesense\Bundle\EventListener\TypesenseIndexer;
-use Typesense\Bundle\Command\CreateCommand;
-use Typesense\Bundle\Command\ListCommand;
-use Typesense\Bundle\Command\HealthCommand;
-use Typesense\Bundle\Command\ActionCommand;
-use Typesense\Bundle\Command\UpdateCommand;
+use Typesense\Bundle\Bridge\Symfony\Command\CreateCommand;
+use Typesense\Bundle\Bridge\Symfony\Command\ListCommand;
+use Typesense\Bundle\Bridge\Symfony\Command\HealthCommand;
+use Typesense\Bundle\Bridge\Symfony\Command\ActionCommand;
+use Typesense\Bundle\Bridge\Symfony\Command\UpdateCommand;
 use Typesense\Bundle\ORM\Transformer\Abstract\AbstractTransformer;
 use Typesense\Bundle\ORM\Transformer\EntityTransformer;
+use Typesense\Bundle\Bridge\Symfony\IndexingWarning;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use Symfony\Component\Cache\Psr16Cache;
 
 return static function (ContainerConfigurator $configurator): void {
     $services = $configurator->services()
@@ -41,8 +44,15 @@ return static function (ContainerConfigurator $configurator): void {
         ->public()
         ->args([
             abstract_arg('Connection name'),
-            service('parameter_bag'),
+            abstract_arg('Connection parameters'),
         ]);
+
+    # The finders' responses, cleared by the indexer
+    $services->set('typesense.cache.adapter', FilesystemAdapter::class)
+        ->private()
+        ->args(['typesense', 0, '%kernel.cache_dir%']);
+    $services->set('typesense.cache', Psr16Cache::class)
+        ->args([service('typesense.cache.adapter')]);
 
     # Metadata definition
     $services->set('typesense.metadata', TypesenseMetadata::class)
@@ -69,7 +79,8 @@ return static function (ContainerConfigurator $configurator): void {
         ->abstract()
         ->args([
             abstract_arg('Collection service'),
-            service('parameter_bag'),
+            '%kernel.debug%',
+            service('typesense.cache'),
         ]);
 
     # Doctrine event listener
@@ -81,9 +92,14 @@ return static function (ContainerConfigurator $configurator): void {
         ->tag('doctrine.event_listener', ['event' => 'postFlush',   'priority' => -1, 'connection' => 'default'])
         ->args([
             service('typesense_manager'),
-            service('request_stack'),
-            service('parameter_bag'),
+            service('typesense.indexing_warning'),
+            service('typesense.cache'),
         ]);
+
+    # A failure to index, as a warning in the session's flash bag
+    $services->set('typesense.indexing_warning', IndexingWarning::class)
+        ->private()
+        ->args([service('request_stack')->nullOnInvalid()]);
 
     # Console commands
     $services->set('typesense.command.create', CreateCommand::class)

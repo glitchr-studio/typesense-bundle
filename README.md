@@ -1,18 +1,58 @@
 # glitchr/typesense-bundle
 
-Symfony integration for [Typesense](https://typesense.org/), structured like
-Doctrine's own DBAL/ORM split:
+[Typesense](https://typesense.org/) for PHP, structured like Doctrine's own
+DBAL/ORM split - in plain PHP first, with a Symfony bundle:
 
-- `DBAL/` — connections, low-level client wiring, multi-server support.
-- `ORM/Mapping/` — collections, metadata (derived from real Doctrine
-  `ClassMetadata`, including single-table-inheritance sub-collections).
-- `ORM/Query/` — a fluent `Request`/`Query` builder and `Response` wrapper.
-- `ORM/Transformer/` — entity ↔ Typesense document conversion.
-- `EventListener/TypesenseIndexer` — keeps collections in sync with Doctrine
-  entity lifecycle events automatically.
+- `DBAL/` - connections, the client made from their parameters, multi-server.
+- `Attribute/` - `#[Collection]` and `#[Field]`: an entity declares what is
+  indexed, and implements nothing.
+- `ORM/Mapping/` - collections, metadata (from the attributes or the
+  configuration, completed by Doctrine's `ClassMetadata`: identifier,
+  single-table-inheritance sub-collections).
+- `ORM/Query/` - a fluent `Request`/`Query` builder and `Response` wrapper.
+- `ORM/Transformer/` - entity -> document (`PropertyReader`: property paths,
+  collections flattened) and the finders' document -> entity.
+- `EventListener/TypesenseIndexer` - the indexing rule on Doctrine's events,
+  on any `EventManager`.
+- `Bridge/Symfony/` - the bundle's configuration, services, the Doctrine
+  listener's wiring and the `typesense:*` commands (`TypesenseBundle` itself
+  stays at the root of the resources).
 
-See [`docs/getting-started.md`](docs/getting-started.md) for a minimal,
-working example, including a multi-server connection setup.
+Requires Doctrine ORM, the Typesense client and two standalone Symfony
+components (Cache, PropertyAccess); `symfony/framework-bundle`,
+`doctrine/doctrine-bundle` and `symfony/console` only in a Symfony
+application. Nothing of the omni* packages is needed.
+
+```php
+#[Collection('article', defaultSortingField: 'publishedAt')]
+#[Field('title', type: 'string', infix: true)]
+#[Field('tags', type: 'string[]', property: 'tags.slug', facet: true)]
+class Article { /* Doctrine mapping as usual */ }
+
+$response = $finder->query((new Query('title', 'fuj'))->infix(Query::INFIX_ALWAYS)->facetBy('tags'));
+$response->getResults();   // Article entities, in the order of the hits
+```
+
+- [`docs/plain-php.md`](docs/plain-php.md): the whole thing by hand,
+  without a framework.
+- [`docs/getting-started.md`](docs/getting-started.md): in a Symfony
+  application, including a multi-server connection setup.
+
+## Verified, and not
+
+- Verified by the suite (`docker compose -f docker-compose.test.yml run --rm test`,
+  a real Typesense 27.1 server): plain PHP on Doctrine and SQLite with no
+  class of a framework loaded (`Integration/BareTest`: indexed on flush,
+  searched, entities hydrated in the hits' order, faceted, infix, removed);
+  a Symfony application with FrameworkBundle, DoctrineBundle and this bundle
+  only (`Integration/SymfonyApplicationTest`: a collection from the
+  attributes and one from the configuration side by side, `typesense:create`,
+  the listener, a finder, `typesense:list`); the attributes give the very
+  mapping and schema the configuration does (`Unit/Attribute`).
+- Not verified: Typesense's multi-node clusters; PostgreSQL (the order of
+  the hydrated hits no longer depends on MySQL's `FIELD()`, but only SQLite
+  and MySQL were run); doctrine/orm 2.x (the constraint allows it, 3.7 is
+  what runs).
 
 ## Sharing a server: `collection_prefix`
 

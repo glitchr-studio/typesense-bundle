@@ -2,16 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Typesense\Bundle\DependencyInjection;
+namespace Typesense\Bundle\Bridge\Symfony\DependencyInjection;
 
 use LogicException;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Config\Resource\DirectoryResource;
 use Symfony\Component\DependencyInjection\ChildDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
+use Typesense\Bundle\ORM\Mapping\AttributeReader;
 use Typesense\Bundle\ORM\TypesenseManager;
 
 class TypesenseExtension extends Extension
@@ -21,8 +23,7 @@ class TypesenseExtension extends Extension
 
     public function load(array $configs, ContainerBuilder $container): void
     {
-        // Format XML
-        $loader = new PhpFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new PhpFileLoader($container, new FileLocator(\dirname(__DIR__) . '/Resources/config'));
         $loader->load('services.php');
 
         // Configuration file: ./config/package/base.yaml
@@ -39,6 +40,20 @@ class TypesenseExtension extends Extension
         foreach ($typesense['connections'] ?? [] as $connectionName => $configuration) {
             $this->loadConnection($connectionName, $configuration, $container);
         }
+
+        // The classes that declare their collection by attributes: the same
+        // mappings as the configuration's, which wins for a key in both.
+        $directories = $typesense['attributes'] ?? null;
+        if (null === $directories) {
+            $directories = $container->hasParameter('kernel.project_dir') ? ['%kernel.project_dir%/src'] : [];
+        }
+        $directories = (array) $container->getParameterBag()->resolveValue($directories);
+        foreach ($directories as $directory) {
+            if (is_dir($directory)) {
+                $container->addResource(new DirectoryResource($directory, '/\.php$/'));
+            }
+        }
+        $typesense['mappings'] = ($typesense['mappings'] ?? []) + AttributeReader::scan($directories);
 
         foreach ($typesense['mappings'] ?? [] as $collectionName => $configuration) {
 
@@ -109,6 +124,7 @@ class TypesenseExtension extends Extension
         $id = sprintf('typesense.connection.%s', $connectionName);
         $definition = new ChildDefinition('typesense.connection');
         $definition->replaceArgument(0, $connectionName);
+        $definition->replaceArgument(1, $connection);
 
         $container->setDefinition($id, $definition);
         $definition->addTag('typesense.connection');

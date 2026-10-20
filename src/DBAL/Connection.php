@@ -4,25 +4,35 @@ declare(strict_types=1);
 
 namespace Typesense\Bundle\DBAL;
 
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Typesense\Client;
 use Typesense\Collection;
 use Typesense\Collections;
 use Typesense\Document;
 use Typesense\Documents;
 
+/**
+ * A named Typesense server: its parameters (secret, url or scheme/host/
+ * port/path, client options) and the client made from them on first use.
+ */
 class Connection
 {
-    protected ParameterBagInterface $parameterBag;
+    /** @var array<string, mixed>|object */
+    protected array|object $parameters;
 
     protected string $name;
 
     protected Driver $driver;
 
-    public function __construct(string $name, ParameterBagInterface $parameterBag)
+    /**
+     * @param array<string, mixed>|object $parameters the connection's parameters - secret, url, scheme,
+     *                                                host, port, path, options - or, as before 2.0, a
+     *                                                parameter bag (anything with all()) holding them
+     *                                                under typesense.connections.<name>.*
+     */
+    public function __construct(string $name, #[\SensitiveParameter] array|object $parameters = [])
     {
         $this->name = $name;
-        $this->parameterBag = $parameterBag;
+        $this->parameters = $parameters;
         $this->driver = new Driver($name);
     }
 
@@ -69,10 +79,21 @@ class Connection
 
     public function getClient(): ?Client
     {
-        $params = array_filter($this->parameterBag->all(), fn($k) => str_starts_with($k, 'typesense.connections.' . $this->name), ARRAY_FILTER_USE_KEY);
-        $params = $this->inflate($params)['typesense']['connections'][$this->name] ?? [];
+        return $this->getDriver()->connect($this->getParameters());
+    }
 
-        return $this->getDriver()->connect($params);
+    /**
+     * @return array<string, mixed>
+     */
+    private function getParameters(): array
+    {
+        if (\is_array($this->parameters)) {
+            return $this->parameters;
+        }
+
+        $params = array_filter($this->parameters->all(), fn ($k) => str_starts_with($k, 'typesense.connections.' . $this->name), ARRAY_FILTER_USE_KEY);
+
+        return $this->inflate($params)['typesense']['connections'][$this->name] ?? [];
     }
 
     public function getDriver(): Driver

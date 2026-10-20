@@ -37,15 +37,27 @@ class EntityTransformer extends AbstractTransformer
         return null;
     }
 
-    public function convert(object $entity): array
+    /**
+     * The mapping an object is converted by: the one of the class that
+     * introduced TypesenseInterface when the object implements it (as
+     * before 2.0), otherwise the mapped class nearest the root of its
+     * hierarchy (a discriminator sub-class is converted by its root
+     * collection's mapping, as with the interface).
+     */
+    public function mappedClass(object $entity): ?string
     {
-        $entityClass = $this->get_class_implementing($entity, TypesenseInterface::class);
-        if (!$entityClass) {
-            throw new \Exception('Class ' . $this->getRootMapping(get_class($entity))->getClass() . ' does not implement "' . TypesenseInterface::class . '"');
+        if ($entity instanceof TypesenseInterface) {
+            return $this->get_class_implementing($entity, TypesenseInterface::class);
         }
 
-        if (!$this->getMapping($entityClass) instanceof TypesenseMetadata) {
-            throw new \Exception(sprintf('Class %s is not supported for Doctrine To Typesense Transformation', $entityClass));
+        return $this->getRootMapping($entity::class)?->getClass();
+    }
+
+    public function convert(object $entity): array
+    {
+        $entityClass = $this->mappedClass($entity);
+        if (!$entityClass || !$this->getMapping($entityClass) instanceof TypesenseMetadata) {
+            throw new \Exception(sprintf('Class %s is not supported for Doctrine To Typesense Transformation', $entity::class));
         }
 
         $data = [];
@@ -55,8 +67,14 @@ class EntityTransformer extends AbstractTransformer
             try {
                 if ($field->discriminator) {
                     $value = $this->objectManager->getClassMetadata(get_class($entity))->discriminatorValue;
+                } elseif ($field->identifier && $field->property && $this->objectManager->getClassMetadata($entity::class)->hasField($field->property)) {
+                    // The identifier as Doctrine holds it, getter or not.
+                    $value = $this->objectManager->getClassMetadata($entity::class)->getFieldValue($entity, $field->property);
                 } else {
-                    $value = $entity->__typesenseGetter($field->property ?? $field->name ?? $key, $field->toArray());
+                    $path = $field->property ?? $field->name ?? $key;
+                    $value = $entity instanceof TypesenseInterface
+                        ? $entity->__typesenseGetter($path, $field->toArray())
+                        : PropertyReader::read($entity, $path, $field->toArray());
                 }
             } catch (RuntimeException $exception) {
                 $value = null;

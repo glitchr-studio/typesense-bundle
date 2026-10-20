@@ -34,6 +34,34 @@ typesense:
 
 ## 2. Map an entity to a collection
 
+On the entity itself, with the attributes of `Typesense\Bundle\Attribute`
+(the classes under `src/` are read; `typesense.attributes` names other
+directories, `[]` none):
+
+```php
+<?php
+// src/Entity/Article.php
+namespace App\Entity;
+
+use Typesense\Bundle\Attribute\Collection;
+use Typesense\Bundle\Attribute\Field;
+
+#[Collection('article', defaultSortingField: 'publishedAt')]
+#[Field('title', type: 'string', infix: true)]            // infix search on it
+#[Field('category', type: 'string', facet: true)]         // filterable/facetable
+#[Field('tags', type: 'string[]', property: 'tags.slug')] // nested property path
+class Article
+{
+    // ... id, title, category, tags, as normal Doctrine mapping ...
+
+    #[Field(type: 'datetime')]   // on a property: its name and path
+    private ?\DateTimeInterface $publishedAt = null;
+}
+```
+
+Or in the configuration - the same mapping, key by key (for a key in both,
+the configuration wins):
+
 ```yaml
 # config/packages/typesense.yaml (continued)
 typesense:
@@ -45,45 +73,33 @@ typesense:
 
             fields:
                 title:
-                    property: title
                     type: string
-                    infix: true       # supports prefix/infix search
+                    infix: true
                 category:
-                    property: category
                     type: string
-                    facet: true       # filterable/facetable
+                    facet: true
                 tags:
-                    property: tags.slug   # nested property path
+                    property: tags.slug
                     type: string[]
                 publishedAt:
                     type: datetime
 ```
 
-## 3. Make the entity indexable
+A field's `options` (`sort`, `optional`, `locale`, `stem`...) go to the
+schema as they are.
 
-```php
-<?php
-// src/Entity/Article.php
-namespace App\Entity;
+## 3. The entity implements nothing
 
-use Typesense\Bundle\TypesenseInterface;
-use Typesense\Bundle\TypesenseTrait;
+A class named by a mapping is indexed as it is: each field is read by its
+property path (`ORM\Transformer\PropertyReader`: through collections, a
+collection's objects by their `__toString()`), the identifier and Doctrine's
+discriminator are added by the metadata, each discriminator value gets a
+sub-collection (`article__<value>`).
 
-class Article implements TypesenseInterface
-{
-    use TypesenseTrait; // provides __typesenseGetter() — property-path reads,
-                         // Collection -> array flattening, nested objects.
-
-    // ... id, title, category, tags, publishedAt, as normal Doctrine mapping ...
-
-    public function __typesense(): ?string
-    {
-        // Used when THIS entity appears as a value inside another entity's
-        // Collection field (see TypesenseTrait::__typesenseGetter()).
-        return $this->title;
-    }
-}
-```
+`TypesenseInterface` and `TypesenseTrait` still work for the entities that
+use them (an object that implements the interface is read through its
+`__typesenseGetter()`, and is `__typesense()` inside another's collection),
+and are no longer needed.
 
 Nothing else to wire manually: `TypesenseIndexer` (a Doctrine
 `postPersist`/`postUpdate`/`preRemove`/`postRemove`/`postFlush` listener) keeps

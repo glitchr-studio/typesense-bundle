@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Typesense\Bundle\Command;
+namespace Typesense\Bundle\Bridge\Symfony\Command;
 
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;

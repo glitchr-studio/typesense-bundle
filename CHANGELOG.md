@@ -1,5 +1,52 @@
 # Changelog
 
+## 2.0 - the framework-free root (October 2026)
+
+### Changed
+
+- The package runs without a framework: everything but `Bridge/Symfony` and
+  `TypesenseBundle` is plain PHP on Doctrine, the Typesense client and the
+  standalone Cache and PropertyAccess components. `symfony/framework-bundle`
+  and `doctrine/doctrine-bundle` move from `require` to `suggest` (with
+  `symfony/console`); `beberlei/doctrineextensions` is no longer required.
+- The Symfony wiring moved to `Bridge/Symfony` (`DependencyInjection\*`,
+  `Command\*`, `Resources/config/services.php`). Their old names are aliases
+  of the moved classes, declared on demand (`src/aliases.php`); service
+  ids, the `typesense` configuration and the `typesense:*` commands are
+  unchanged. `Resources/config/services.xml`, unused, is removed.
+- `DBAL\Connection` takes the connection's parameters (an array) instead of
+  the container's parameter bag; `TypesenseFinder` takes `bool $debug` and a
+  `CacheInterface` (in memory by default); `TypesenseIndexer` takes an
+  `$onError` callable (the bundle's puts a warning in the session's flash
+  bag, as before) and the finders' cache. The former arguments - a
+  parameter bag, the request stack - are still accepted.
+- The hits are hydrated in their order by PHP instead of MySQL's `FIELD()`
+  in DQL: any database. The bundle still registers `FIELD` where beberlei
+  is installed.
+
+### Added
+
+- `#[Typesense\Bundle\Attribute\Collection]` and `#[Field]`: a class declares
+  its collection itself (the same mapping as the configuration's, with its
+  defaults); `typesense.attributes` names the directories read (`src/` by
+  default). `ORM\Mapping\AttributeReader` reads them without a framework.
+- A class named by a mapping is indexed without `TypesenseInterface`:
+  `ORM\Transformer\PropertyReader` reads its fields (what `TypesenseTrait` did),
+  related objects become strings by `__toString()`. The interface and the
+  trait keep working (deprecated).
+- A field's `options` (sort, optional, locale...), sent with the schema.
+
+### Fixed
+
+- Infix: a field's `infix: true` was dropped from the schema, and
+  `Query::infix()` was never sent with more than one `query_by` field.
+- `TypesenseFinder::facet()` asked for a facet field named "always" and
+  always returned no facet.
+- An entity without inheritance got a field named "" (no discriminator
+  column); an entity without a second-level cache region failed to hydrate
+  (`setCacheRegion(null)` on doctrine/orm 3); an identifier without a
+  getter was read as empty: it is read through Doctrine's metadata.
+
 ## 2.0 — October 2026
 
 ### Changed (breaking for whoever relied on it)

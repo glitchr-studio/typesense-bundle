@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Typesense\Bundle\ORM;
 
 use Psr\SimpleCache\CacheInterface;
+use Symfony\Component\Cache\Adapter\ArrayAdapter;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\Psr16Cache;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Typesense\Bundle\Exception\TypesenseException;
 use Typesense\Bundle\ORM\Mapping\TypesenseCollection;
 use Typesense\Bundle\ORM\Mapping\TypesenseMetadata;
@@ -26,11 +26,22 @@ class TypesenseFinder implements TypesenseFinderInterface
     protected $objectManager;
     protected $isDebug;
 
-    public function __construct(TypesenseCollection $collection, ParameterBagInterface $parameterBag, ?CacheInterface $cache = null)
+    /**
+     * @param bool|object $debug whether an error's message is kept in the Response (true while
+     *                           developing) - or, as before 2.0, a parameter bag (anything with
+     *                           get()): its kernel.debug, and a cache in its kernel.cache_dir
+     * @param ?CacheInterface $cache where cacheable responses are kept; in memory by default
+     */
+    public function __construct(TypesenseCollection $collection, bool|object $debug = false, ?CacheInterface $cache = null)
     {
-        $this->isDebug = $parameterBag->get('kernel.debug');
+        if (\is_object($debug)) {
+            $cache ??= new Psr16Cache(new FilesystemAdapter('typesense', 0, $debug->get('kernel.cache_dir')));
+            $debug = (bool) $debug->get('kernel.debug');
+        }
+
+        $this->isDebug = $debug;
         $this->collection = $collection;
-        $this->cache = $cache ?? new Psr16Cache(new FilesystemAdapter('typesense', 0, $parameterBag->get('kernel.cache_dir')));
+        $this->cache = $cache ?? new Psr16Cache(new ArrayAdapter());
         $this->objectManager = $collection->metadata()->getObjectManager();
     }
 
@@ -122,18 +133,29 @@ class TypesenseFinder implements TypesenseFinderInterface
         }
 
         $classMetadata = $this->objectManager->getClassMetadata($this->collection->metadata()->class);
-        $response->setHydratedHits($this->objectManager
+        $query = $this->objectManager
             ->createQueryBuilder()
             ->select('e')
             ->from($this->metadata()->class, 'e')
             ->where('e.' . $primaryField->property . ' IN (:ids)')
-            ->orderBy('FIELD(e.' . $primaryField->property . ', ' . implode(', ', $ids) . ')')
             ->setParameter('ids', $ids)
             ->setCacheable($cacheable)
             ->getQuery()
-            ->useQueryCache($cacheable)
-            ->setCacheRegion($classMetadata->cache['region'] ?? null)
-            ->getResult());
+            ->useQueryCache($cacheable);
+        // An entity without a second-level cache region has none to name
+        // (setCacheRegion(null) is a TypeError on doctrine/orm 3).
+        if (null !== ($region = $classMetadata->cache['region'] ?? null)) {
+            $query->setCacheRegion($region);
+        }
+        $entities = $query->getResult();
+
+        // In the order of the hits - the database returns an IN in its own
+        // order; this used to be MySQL's FIELD(), and is the same on any
+        // database now.
+        $position = array_flip(array_map('strval', $ids));
+        $identifier = $primaryField->property;
+        usort($entities, fn ($a, $b) => ($position[(string) $classMetadata->getFieldValue($a, $identifier)] ?? PHP_INT_MAX) <=> ($position[(string) $classMetadata->getFieldValue($b, $identifier)] ?? PHP_INT_MAX));
+        $response->setHydratedHits($entities);
 
         return $response->setHydrated(true);
     }

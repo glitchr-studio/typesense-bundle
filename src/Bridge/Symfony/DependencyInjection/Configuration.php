@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Typesense\Bundle\DependencyInjection;
+namespace Typesense\Bundle\Bridge\Symfony\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -46,6 +46,10 @@ class Configuration implements ConfigurationInterface
             ->end()
             ->end()
             ->end()
+            ->variableNode('attributes')
+            ->info('Directories whose classes declare their collection by attributes (Typesense\\Bundle\\Attribute\\Collection): the application\'s src/ when null, none when empty')
+            ->defaultNull()
+            ->end()
             ->arrayNode('mappings')
             ->info('Mapping definitions')
             ->useAttributeAsKey('name')
@@ -60,6 +64,10 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('property')->end()
             ->booleanNode('facet')->end()
             ->booleanNode('infix')->end()
+            ->arrayNode('options')
+            ->info('Further parameters of the field\'s schema, sent as they are (sort, optional, locale...)')
+            ->variablePrototype()->end()
+            ->end()
             ->end()
             ->end()
             ->end()

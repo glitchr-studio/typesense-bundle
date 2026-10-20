@@ -38,6 +38,7 @@ class TypesenseMetadata extends TypesenseMetadataInfo
                 $this->fields[$fieldName]->property ??= $field['property'] ?? null;
                 $this->fields[$fieldName]->facet = $field['facet'] ?? false;
                 $this->fields[$fieldName]->infix = $field['infix'] ?? false;
+                $this->fields[$fieldName]->options = $field['options'] ?? [];
                 $this->fields[$fieldName]->discriminator = false;
                 $this->fields[$fieldName]->identifier = false;
             }
@@ -168,6 +169,11 @@ class TypesenseMetadata extends TypesenseMetadataInfo
         $className = $this->class ?? null;
         if ($className && class_exists($className)) {
             $classMetadata = $this->objectManager->getClassMetadata($className);
+            if (!$classMetadata->discriminatorColumn) {
+                // No inheritance, no discriminator: nothing to add (this
+                // used to add a field named "" that Typesense refuses).
+                return $this;
+            }
 
             $discriminatorColumn = $classMetadata->discriminatorColumn->name;
             $discriminatorType = $classMetadata->discriminatorColumn->type ?? 'string';
