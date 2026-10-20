@@ -102,7 +102,7 @@ class TypesenseFinder implements TypesenseFinderInterface
         }
 
         $query ??= new Query($facetBy);
-        $query->facetBy(Query::INFIX_ALWAYS);
+        $query->facetBy($facetBy);
 
         $response = $this->search($query);
         return $response->getFacetCounts($checkbox, $sortByName, $mode);
