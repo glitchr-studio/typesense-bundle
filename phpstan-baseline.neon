@@ -1,0 +1,3785 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Binary operation "\." between ''select COUNT\(u\.id\)…'' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Binary operation "\." between ''select e from '' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot access offset ''error'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot access offset ''id'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot access offset ''success'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method cache\(\) on Typesense\\Bundle\\ORM\\TypesenseFinder\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method convert\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method createQuery\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method documents\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method getClass\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method getConfiguration\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method getConnection\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method getId\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method getObjectManager\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method getSingleScalarResult\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method getTransformer\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method import\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method metadata\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method setSQLLogger\(\) on class\-string\|object\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method toIterable\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot cast mixed to int\.$#'
+			identifier: cast.int
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Bridge\\Symfony\\Command\\ActionCommand\:\:printErrors\(\) has parameter \$response with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Parameter \#1 \$message of method Symfony\\Component\\Console\\Style\\SymfonyStyle\:\:error\(\) expects array\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Parameter \#1 \$object_or_class of function method_exists expects object\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Parameter \#2 \$response of method Typesense\\Bundle\\Bridge\\Symfony\\Command\\ActionCommand\:\:printErrors\(\) expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/Command/ActionCommand.php
+
+		-
+			message: '#^Cannot call method cache\(\) on Typesense\\Bundle\\ORM\\TypesenseFinder\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/CreateCommand.php
+
+		-
+			message: '#^Cannot call method create\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/CreateCommand.php
+
+		-
+			message: '#^Cannot call method delete\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/CreateCommand.php
+
+		-
+			message: '#^Cannot call method getCollectionName\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/CreateCommand.php
+
+		-
+			message: '#^Cannot call method getHealth\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/CreateCommand.php
+
+		-
+			message: '#^Cannot call method metadata\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/CreateCommand.php
+
+		-
+			message: '#^Parameter \#3 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/Command/CreateCommand.php
+
+		-
+			message: '#^Cannot access offset ''error'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Bridge/Symfony/Command/HealthCommand.php
+
+		-
+			message: '#^Cannot access offset ''success'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Bridge/Symfony/Command/HealthCommand.php
+
+		-
+			message: '#^Cannot call method getHealth\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/HealthCommand.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Bridge\\Symfony\\Command\\HealthCommand\:\:printErrors\(\) has parameter \$response with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Bridge/Symfony/Command/HealthCommand.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Bridge\\Symfony\\Command\\HealthCommand\:\:printErrors\(\) is unused\.$#'
+			identifier: method.unused
+			count: 1
+			path: src/Bridge/Symfony/Command/HealthCommand.php
+
+		-
+			message: '#^Parameter \#1 \$message of method Symfony\\Component\\Console\\Style\\SymfonyStyle\:\:error\(\) expects array\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/Command/HealthCommand.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 2
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Binary operation "\." between "\\tField \<info\>\[" and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Binary operation "\." between ''\- Collection \<info\>\['' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Cannot access offset ''error'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Cannot access offset ''fields'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 3
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Cannot access offset ''success'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Cannot access offset ''type'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Cannot call method getCollections\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Cannot call method getHealth\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Cannot call method metadata\(\) on Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Cannot call method retrieve\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Bridge\\Symfony\\Command\\ListCommand\:\:printErrors\(\) has parameter \$response with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Bridge\\Symfony\\Command\\ListCommand\:\:printErrors\(\) is unused\.$#'
+			identifier: method.unused
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Parameter \#1 \$key of function array_key_exists expects int\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Parameter \#1 \$message of method Symfony\\Component\\Console\\Style\\SymfonyStyle\:\:error\(\) expects array\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Bridge/Symfony/Command/ListCommand.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Binary operation "\." between ''select COUNT\(u\.id\)…'' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Binary operation "\." between ''select e from '' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Cannot access offset ''error'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Cannot access offset ''success'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Cannot call method cache\(\) on Typesense\\Bundle\\ORM\\TypesenseFinder\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Cannot call method convert\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Cannot call method createQuery\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Cannot call method documents\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Cannot call method getClass\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Cannot call method getObjectManager\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Cannot call method getSingleScalarResult\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Cannot call method getTransformer\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Cannot call method import\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Cannot call method metadata\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Cannot call method toIterable\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Cannot cast mixed to int\.$#'
+			identifier: cast.int
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Bridge\\Symfony\\Command\\UpdateCommand\:\:printErrors\(\) has parameter \$response with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Parameter \#1 \$message of method Symfony\\Component\\Console\\Style\\SymfonyStyle\:\:error\(\) expects array\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Parameter \#2 \$response of method Typesense\\Bundle\\Bridge\\Symfony\\Command\\UpdateCommand\:\:printErrors\(\) expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/Command/UpdateCommand.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Binary operation "\+" between mixed and array\<string, array\<string, mixed\>\> results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''\.'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Bridge\\Symfony\\DependencyInjection\\TypesenseExtension\:\:loadCollections\(\) has parameter \$collection with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Bridge\\Symfony\\DependencyInjection\\TypesenseExtension\:\:loadConnection\(\) has parameter \$connection with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Bridge\\Symfony\\DependencyInjection\\TypesenseExtension\:\:loadMetadata\(\) has parameter \$collection with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Bridge\\Symfony\\DependencyInjection\\TypesenseExtension\:\:setConfiguration\(\) has parameter \$config with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Bridge\\Symfony\\DependencyInjection\\TypesenseExtension\:\:setConfiguration\(\) has parameter \$globalKey with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Offset ''mappings'' on non\-empty\-array on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Parameter \#1 \$connectionName of method Typesense\\Bundle\\Bridge\\Symfony\\DependencyInjection\\TypesenseExtension\:\:loadConnection\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Parameter \#1 \$directories of static method Typesense\\Bundle\\ORM\\Mapping\\AttributeReader\:\:scan\(\) expects list\<string\>, array\<mixed\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Parameter \#1 \$filename of function is_dir expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Parameter \#1 \$resource of class Symfony\\Component\\Config\\Resource\\DirectoryResource constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Parameter \#2 \$collection of method Typesense\\Bundle\\Bridge\\Symfony\\DependencyInjection\\TypesenseExtension\:\:loadCollections\(\) expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Parameter \#2 \$collection of method Typesense\\Bundle\\Bridge\\Symfony\\DependencyInjection\\TypesenseExtension\:\:loadMetadata\(\) expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Parameter \#2 \$connection of method Typesense\\Bundle\\Bridge\\Symfony\\DependencyInjection\\TypesenseExtension\:\:loadConnection\(\) expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Parameter \#2 \$value of method Symfony\\Component\\DependencyInjection\\Container\:\:setParameter\(\) expects array\|bool\|float\|int\|string\|UnitEnum\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\Bridge\\Symfony\\DependencyInjection\\TypesenseExtension\:\:\$defaultConnection \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Bridge/Symfony/DependencyInjection/TypesenseExtension.php
+
+		-
+			message: '#^Cannot call method add\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Bridge/Symfony/IndexingWarning.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/DBAL/Configuration.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Configuration\:\:__construct\(\) has parameter \$options with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DBAL/Configuration.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Configuration\:\:__construct\(\) has parameter \$params with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DBAL/Configuration.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Configuration\:\:getNode\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DBAL/Configuration.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Configuration\:\:getOptions\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DBAL/Configuration.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\DBAL\\Configuration\:\:\$host \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/DBAL/Configuration.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\DBAL\\Configuration\:\:\$options type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DBAL/Configuration.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\DBAL\\Configuration\:\:\$port \(int\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/DBAL/Configuration.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\DBAL\\Configuration\:\:\$scheme \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/DBAL/Configuration.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Call to an undefined method object\:\:all\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Cannot access offset ''connections'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Cannot access offset ''typesense'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Cannot access offset string on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Connection\:\:getDebug\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Connection\:\:getDocument\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Connection\:\:getHealth\(\) should return bool but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Connection\:\:getParameters\(\) should return array\<string, mixed\> but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Connection\:\:inflate\(\) has parameter \$array with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Connection\:\:inflate\(\) has parameter \$divider_char with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Offset string might not exist on Typesense\\Collections\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_filter expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_pop expects array, list\<string\>\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Parameter \#1 \$haystack of function str_starts_with expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Parameter \#1 \$str of function preg_quote expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 7
+			path: src/DBAL/Connection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Driver\:\:connect\(\) has parameter \$params with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DBAL/Driver.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Driver\:\:prepare\(\) has parameter \$params with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DBAL/Driver.php
+
+		-
+			message: '#^Parameter \#1 \$secret of class Typesense\\Bundle\\DBAL\\Configuration constructor expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DBAL/Driver.php
+
+		-
+			message: '#^Parameter \#1 \$url of function parse_url expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DBAL/Driver.php
+
+		-
+			message: '#^Parameter \#3 \$options of class Typesense\\Bundle\\DBAL\\Configuration constructor expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DBAL/Driver.php
+
+		-
+			message: '#^Cannot access property \$identifier on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/DBAL/Transaction.php
+
+		-
+			message: '#^Cannot access property \$name on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/DBAL/Transaction.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/DBAL/Transaction.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Transaction\:\:__construct\(\) has parameter \$action with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/DBAL/Transaction.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Transaction\:\:__construct\(\) has parameter \$options with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DBAL/Transaction.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Transaction\:\:commit\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/DBAL/Transaction.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\DBAL\\Transaction\:\:rollBack\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/DBAL/Transaction.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 1
+			path: src/DBAL/Transaction.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\DBAL\\Transaction\:\:\$action \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/DBAL/Transaction.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\DBAL\\Transaction\:\:\$mock type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DBAL/Transaction.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\DBAL\\Transaction\:\:\$options type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DBAL/Transaction.php
+
+		-
+			message: '#^Cannot call method add\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Cannot call method clear\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Cannot call method commit\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Cannot call method getCollections\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Cannot call method getFlashBag\(\) on class\-string\|object\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Cannot call method getSession\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Cannot call method hasSession\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:collectionsOf\(\) should return list\<Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\> but returns list\.$#'
+			identifier: return.type
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:postFlush\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:postPersist\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:postPersist\(\) has parameter \$args with generic class Doctrine\\Persistence\\Event\\LifecycleEventArgs but does not specify its types\: TObjectManager$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:postRemove\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:postRemove\(\) has parameter \$args with generic class Doctrine\\Persistence\\Event\\LifecycleEventArgs but does not specify its types\: TObjectManager$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:postUpdate\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:postUpdate\(\) has parameter \$args with generic class Doctrine\\Persistence\\Event\\LifecycleEventArgs but does not specify its types\: TObjectManager$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:preRemove\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:preRemove\(\) has parameter \$args with generic class Doctrine\\Persistence\\Event\\LifecycleEventArgs but does not specify its types\: TObjectManager$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '''
+				#^PHPDoc tag @param has invalid value \(\?callable\|object     \$onError what to do with a failure to index \(once per flush\) \-
+				                                     or, as before 2\.0, Symfony's request stack\: a warning
+				                                     in the current session's flash bag\)\: Unexpected token "\|", expected variable at offset 27 on line 2$#
+			'''
+			identifier: phpDoc.parseError
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_filter expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Parameter \#1 \$callback of static method Closure\:\:fromCallable\(\) expects callable\(\)\: mixed, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Parameter \#1 \$object_or_class of function method_exists expects object\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Parameter \#2 \$array of function implode expects array\<string\>, array\<string, mixed\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Parameter \#2 \$callback of function array_filter expects \(callable\(mixed\)\: bool\)\|null, Closure\(Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\)\: bool given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Parameter \#3 \$directory of class Symfony\\Component\\Cache\\Adapter\\FilesystemAdapter constructor expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Parameter \#3 \$objectOrId of class Typesense\\Bundle\\DBAL\\Transaction constructor expects object\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:\$cache has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:\$first has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:\$objectIds type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:\$onError \(\(Closure\(Throwable\)\: void\)\|null\) does not accept \(Closure\(\)\: mixed\)\|null\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:\$transactions type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\EventListener\\TypesenseIndexer\:\:\$typesenseManager has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/EventListener/TypesenseIndexer.php
+
+		-
+			message: '#^Cannot access offset ''message'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Exception/TypesenseException.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Exception\\TypesenseException\:\:__construct\(\) has parameter \$code with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Exception/TypesenseException.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Exception\\TypesenseException\:\:__construct\(\) has parameter \$message with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Exception/TypesenseException.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Exception\\TypesenseException\:\:__construct\(\) has parameter \$previous with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Exception/TypesenseException.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Exception\\TypesenseException\:\:transformExceptionToStatusCode\(\) has parameter \$e with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Exception/TypesenseException.php
+
+		-
+			message: '#^Parameter \#1 \$message of method Exception\:\:__construct\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Exception/TypesenseException.php
+
+		-
+			message: '#^Parameter \#2 \$code of method Exception\:\:__construct\(\) expects int, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Exception/TypesenseException.php
+
+		-
+			message: '#^Parameter \#3 \$previous of method Exception\:\:__construct\(\) expects Throwable\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Exception/TypesenseException.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\Exception\\TypesenseException\:\:\$message \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Exception/TypesenseException.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\Exception\\TypesenseException\:\:\$status has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Exception/TypesenseException.php
+
+		-
+			message: '#^Cannot call method getExtension\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/Mapping/AttributeReader.php
+
+		-
+			message: '#^Cannot call method getPathname\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/Mapping/AttributeReader.php
+
+		-
+			message: '#^Parameter \#1 \$filename of function file_get_contents expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Mapping/AttributeReader.php
+
+		-
+			message: '#^Parameter \#3 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Mapping/AttributeReader.php
+
+		-
+			message: '#^Binary operation "\." between mixed and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot access offset ''fields'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot access offset ''type'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method cast\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method getClass\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method getClient\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method getCollectionName\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method getCollections\(\) on Typesense\\Client\|null\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method getConfiguration\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method getMultiSearch\(\) on Typesense\\Client\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method getName\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method getPrefix\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method getStatus\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 5
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method getStatusCode\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 5
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method getTransformer\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method isConnected\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 5
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method search\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot call method toArray\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:client\(\) should return Typesense\\Client\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:connection\(\) should return Typesense\\Bundle\\DBAL\\Connection but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:create\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:delete\(\) should return null but return statement is missing\.$#'
+			identifier: return.missing
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:delete\(\) should return null but returns array\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:documents\(\) should return Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:list\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:metadata\(\) should return Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadata but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:multiSearch\(\) has parameter \$searchRequests with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:multiSearch\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:name\(\) should return string but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:prefix\(\) has parameter \$headers with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:prefix\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:search\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:search\(\) should return array\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:supports\(\) has parameter \$entity with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:transformer\(\) should return Typesense\\Bundle\\ORM\\Transformer\\Abstract\\TransformerInterface but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^PHPDoc tag @throws with type Typesense\\Bundle\\ORM\\Mapping\\Exception is not subtype of Throwable$#'
+			identifier: throws.notThrowable
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Parameter \#1 \$object_or_class of function is_a expects object\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Parameter \#1 \$schema of method Typesense\\Collections\:\:create\(\) expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Parameter \#2 \$array of function array_map expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Parameter \#2 \$class of function is_a expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:\$connection has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:\$documents has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\:\:\$metadata has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Using nullsafe method call on non\-nullable type Typesense\\Collection\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: src/ORM/Mapping/TypesenseCollection.php
+
+		-
+			message: '#^Cannot access property \$documents on Typesense\\Collection\|null\.$#'
+			identifier: property.nonObject
+			count: 5
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Cannot call method getClient\(\) on Typesense\\Bundle\\DBAL\\Connection\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Cannot call method getStatus\(\) on Typesense\\Bundle\\DBAL\\Connection\|null\.$#'
+			identifier: method.nonObject
+			count: 6
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Cannot call method getStatusCode\(\) on Typesense\\Bundle\\DBAL\\Connection\|null\.$#'
+			identifier: method.nonObject
+			count: 6
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Cannot call method isConnected\(\) on Typesense\\Bundle\\DBAL\\Connection\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:create\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:create\(\) has parameter \$options with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:create\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:delete\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:import\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:import\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:search\(\) has parameter \$searchParams with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:search\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:update\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:update\(\) has parameter \$options with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:update\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:upsert\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:upsert\(\) has parameter \$options with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:upsert\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Offset int\|string might not exist on Typesense\\Documents\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Offset string might not exist on Typesense\\Collections\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 6
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseDocuments\:\:\$connection \(Typesense\\Bundle\\DBAL\\Connection\|null\) is never assigned null so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Using nullsafe method call on non\-nullable type Typesense\\Bundle\\DBAL\\Connection\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 5
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Using nullsafe method call on non\-nullable type Typesense\\Document\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: src/ORM/Mapping/TypesenseDocuments.php
+
+		-
+			message: '#^Access to an undefined property Doctrine\\Persistence\\Mapping\\ClassMetadata\<object\>\:\:\$discriminatorColumn\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Access to an undefined property Doctrine\\Persistence\\Mapping\\ClassMetadata\<object\>\:\:\$discriminatorMap\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Access to an undefined property Doctrine\\Persistence\\Mapping\\ClassMetadata\<object\>\:\:\$identifier\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Access to an undefined property Doctrine\\Persistence\\Mapping\\ClassMetadata\<object\>\:\:\$subClasses\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 3
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Binary operation "\." between ''identifier\['' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 2
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Cannot access offset ''facet'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Cannot access offset ''infix'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Cannot access offset ''options'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Cannot access offset ''property'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Cannot access offset ''type'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Cannot access property \$discriminator on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Cannot access property \$facet on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Cannot access property \$identifier on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Cannot access property \$name on mixed\.$#'
+			identifier: property.nonObject
+			count: 5
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Cannot access property \$property on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Cannot access property \$type on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadata\:\:__construct\(\) has parameter \$configuration with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadata\:\:getClass\(\) should return string but returns string\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadata\:\:getConfiguration\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadata\:\:getSubMetadata\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_flip expects array\<int\|string\>, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Parameter \#1 \$className of method Doctrine\\Persistence\\ObjectManager\:\:getClassMetadata\(\) expects class\-string\<object\>, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Parameter \#1 \$fieldName of method Doctrine\\Persistence\\Mapping\\ClassMetadata\<object\>\:\:getTypeOfField\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Parameter \#1 \$fieldName of method Doctrine\\Persistence\\Mapping\\ClassMetadata\<object\>\:\:hasField\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Parameter \#1 \$key of function array_key_exists expects int\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 3
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 17
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataField\:\:\$facet \(bool\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataField\:\:\$infix \(bool\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataField\:\:\$name \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataField\:\:\$options \(array\<string, mixed\>\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataField\:\:\$property \(string\|null\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 3
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataField\:\:\$type \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataField\:\:\$type \(string\) does not accept string\|null\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataInfo\:\:\$class \(string\|null\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataInfo\:\:\$defaultSortingField \(string\|null\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataInfo\:\:\$symbolsToIndex \(array\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataInfo\:\:\$tokenSeparators \(array\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Unable to resolve the template type T in call to method Doctrine\\Persistence\\ObjectManager\:\:getClassMetadata\(\)$#'
+			identifier: argument.templateType
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadata.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataField\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadataField.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataInfo\:\:\$fields type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadataInfo.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataInfo\:\:\$symbolsToIndex type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadataInfo.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadataInfo\:\:\$tokenSeparators type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Mapping/TypesenseMetadataInfo.php
+
+		-
+			message: '#^Binary operation "\." between mixed and '' && '' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/ORM/Query/Query.php
+
+		-
+			message: '#^Binary operation "\." between mixed and '', '' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/ORM/Query/Query.php
+
+		-
+			message: '#^Binary operation "\." between mixed and '', \^'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/ORM/Query/Query.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Query\:\:facetBy\(\) has parameter \$facetBy with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Query/Query.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Query\:\:maxHits\(\) has parameter \$maxHits with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/ORM/Query/Query.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Query\:\:normalizeString\(\) has parameter \$value with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Query/Query.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\[type\] \$maxHits\)\: Unexpected token "\[", expected type at offset 152 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: src/ORM/Query/Query.php
+
+		-
+			message: '#^Parameter \#1 \$callback of function array_map expects \(callable\(mixed\)\: mixed\)\|null, ''trim'' given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Query/Query.php
+
+		-
+			message: '#^Parameter \#2 \$array of function implode expects array\<string\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Query/Query.php
+
+		-
+			message: '#^Binary operation "\." between mixed and '', '' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/ORM/Query/Request.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Request\:\:__construct\(\) has parameter \$queryBy with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Query/Request.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Request\:\:addHeader\(\) has parameter \$key with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/ORM/Query/Request.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Request\:\:addHeader\(\) has parameter \$value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/ORM/Query/Request.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Request\:\:getFields\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Query/Request.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Request\:\:getHeaders\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Query/Request.php
+
+		-
+			message: '#^Parameter \#2 \$array of function implode expects array\<string\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Query/Request.php
+
+		-
+			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Query/Request.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 1
+			path: src/ORM/Query/Request.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Query\\Request\:\:\$headers type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Query/Request.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 3
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Cannot access offset ''checked'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Cannot access offset ''counts'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 4
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Cannot access offset ''field_name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Cannot access offset ''value'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 3
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Cannot access offset int\|string on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 2
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Response\:\:__construct\(\) has parameter \$headers with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Response\:\:__construct\(\) has parameter \$result with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Response\:\:getContent\(\) should return string but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Response\:\:getFacetCounts\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Response\:\:getFacetCounts\(\) has parameter \$checkbox with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Response\:\:getFound\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Response\:\:getHeader\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Response\:\:getHeaders\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Response\:\:getHit\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Response\:\:getHit\(\) should return array\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Response\:\:getPage\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Response\:\:getResults\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Query\\Response\:\:setHydratedHits\(\) has parameter \$hydratedHits with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^PHPDoc tag @return with type mixed is not subtype of native type array\|null\.$#'
+			identifier: return.phpDocType
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_column expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Parameter \#1 \$array of function usort expects TArray of array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of function in_array expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Query\\Response\:\:\$headers type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Query\\Response\:\:\$hydratedHits \(array\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Query\\Response\:\:\$hydratedHits type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Query/Response.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Transformer\\Abstract\\AbstractTransformer\:\:convert\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Transformer/Abstract/AbstractTransformer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Transformer\\Abstract\\AbstractTransformer\:\:get\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/ORM/Transformer/Abstract/AbstractTransformer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Transformer\\Abstract\\AbstractTransformer\:\:get\(\) has parameter \$value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/ORM/Transformer/Abstract/AbstractTransformer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Transformer\\Abstract\\AbstractTransformer\:\:getMapping\(\) has parameter \$className with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/ORM/Transformer/Abstract/AbstractTransformer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Transformer\\Abstract\\AbstractTransformer\:\:getMapping\(\) should return Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadata\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/Transformer/Abstract/AbstractTransformer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Transformer\\Abstract\\AbstractTransformer\:\:getRootMapping\(\) has parameter \$className with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/ORM/Transformer/Abstract/AbstractTransformer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Transformer\\Abstract\\AbstractTransformer\:\:getRootMapping\(\) should return Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadata\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/Transformer/Abstract/AbstractTransformer.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\[type\] \$value the value to convert\)\: Unexpected token "\[", expected type at offset 204 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: src/ORM/Transformer/Abstract/AbstractTransformer.php
+
+		-
+			message: '#^Parameter \#1 \$object_or_class of function get_parent_class expects object\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 3
+			path: src/ORM/Transformer/Abstract/AbstractTransformer.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 2
+			path: src/ORM/Transformer/Abstract/AbstractTransformer.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\Transformer\\Abstract\\AbstractTransformer\:\:\$mapping type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Transformer/Abstract/AbstractTransformer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Transformer\\Abstract\\TransformerInterface\:\:convert\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Transformer/Abstract/TransformerInterface.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Transformer\\Abstract\\TransformerInterface\:\:get\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/ORM/Transformer/Abstract/TransformerInterface.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Transformer\\Abstract\\TransformerInterface\:\:get\(\) has parameter \$value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/ORM/Transformer/Abstract/TransformerInterface.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(\[type\] \$value the value to convert\)\: Unexpected token "\[", expected type at offset 203 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: src/ORM/Transformer/Abstract/TransformerInterface.php
+
+		-
+			message: '#^Access to an undefined property Doctrine\\Persistence\\Mapping\\ClassMetadata\<object\>\:\:\$discriminatorValue\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''\:'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Cannot access property \$discriminator on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Cannot access property \$fields on Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadata\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Cannot access property \$identifier on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Cannot access property \$name on mixed\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Cannot access property \$property on mixed\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Cannot access property \$type on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Cannot call method __toString\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Cannot call method map\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Cannot call method toArray\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Expression on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.expr
+			count: 2
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Transformer\\EntityTransformer\:\:convert\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Transformer\\EntityTransformer\:\:get\(\) has parameter \$value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Transformer\\EntityTransformer\:\:get\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\Transformer\\EntityTransformer\:\:get\(\) should return array\|int\|string but returns mixed\.$#'
+			identifier: return.type
+			count: 2
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Offset int\<0, max\>\|false might not exist on list\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_values expects array\<T\>, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Parameter \#1 \$fieldName of method Doctrine\\Persistence\\Mapping\\ClassMetadata\<object\>\:\:hasField\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Parameter \#1 \$propertyName of method Typesense\\Bundle\\TypesenseInterface\:\:__typesenseGetter\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Parameter \#1 \$type of method Typesense\\Bundle\\ORM\\Transformer\\Abstract\\AbstractTransformer\:\:cast\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Parameter \#2 \$field of method Doctrine\\Persistence\\Mapping\\ClassMetadata\<object\>\:\:getFieldValue\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Parameter \#2 \$path of static method Typesense\\Bundle\\ORM\\Transformer\\PropertyReader\:\:read\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Parameter \#2 \$propertyInfo of method Typesense\\Bundle\\TypesenseInterface\:\:__typesenseGetter\(\) expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Parameter \#2 \$propertyName of method Typesense\\Bundle\\ORM\\Transformer\\EntityTransformer\:\:get\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Parameter \#3 \$field of static method Typesense\\Bundle\\ORM\\Transformer\\PropertyReader\:\:read\(\) expects array\{type\?\: string\}, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 1
+			path: src/ORM/Transformer/EntityTransformer.php
+
+		-
+			message: '#^Parameter \#1 \$objectOrArray of method Symfony\\Component\\PropertyAccess\\PropertyAccessorInterface\:\:getValue\(\) expects array\|object, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/ORM/Transformer/PropertyReader.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 3
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Binary operation "\." between ''Class "'' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Binary operation "\." between ''e\.'' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''\:\!\=''\|''\:\='' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 2
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 2
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Call to an undefined method object\:\:get\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot access offset ''document'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot access offset ''region'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot access offset string on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot access property \$cache on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot access property \$class on mixed\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot access property \$discriminatorColumn on mixed\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot access property \$discriminatorValue on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot access property \$fields on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot access property \$identifier on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot access property \$name on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot access property \$property on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot access property \$subClasses on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method createQueryBuilder\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method from\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method get\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method getClassMetadata\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 4
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method getFieldValue\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method getQuery\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method getResult\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method has\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method metadata\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 6
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method name\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method search\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method select\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method set\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method setCacheRegion\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method setCacheable\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method setParameter\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method useQueryCache\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot call method where\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 2
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\TypesenseFinder\:\:cache\(\) should return Psr\\SimpleCache\\CacheInterface but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\TypesenseFinder\:\:collection\(\) should return Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\TypesenseFinder\:\:facet\(\) has parameter \$checkbox with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\TypesenseFinder\:\:identifier\(\) should return string but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\TypesenseFinder\:\:metadata\(\) should return Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadata but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Parameter \#1 \$array of function usort expects TArray of array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Parameter \#1 \$callback of function array_map expects \(callable\(mixed\)\: mixed\)\|null, ''strval'' given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Parameter \#1 \$query of method Typesense\\Bundle\\ORM\\TypesenseFinder\:\:search\(\) expects Typesense\\Bundle\\ORM\\Query\\Query, Typesense\\Bundle\\ORM\\Query\\Request given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Parameter \#1 \$result of class Typesense\\Bundle\\ORM\\Query\\Response constructor expects array\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Parameter \#2 \$array of function implode expects array\<string\>, array\<int, mixed\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Parameter \#3 \$directory of class Symfony\\Component\\Cache\\Adapter\\FilesystemAdapter constructor expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\TypesenseFinder\:\:\$cache has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\TypesenseFinder\:\:\$cacheDir has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\TypesenseFinder\:\:\$collection has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\TypesenseFinder\:\:\$isDebug has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\TypesenseFinder\:\:\$objectManager has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Variable \$c on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.variable
+			count: 1
+			path: src/ORM/TypesenseFinder.php
+
+		-
+			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Cannot access offset non\-falsy\-string on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Cannot access offset string on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Cannot call method addMapping\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Cannot call method getName\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Cannot call method getTransformer\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Cannot call method metadata\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\TypesenseManager\:\:getCollection\(\) should return Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\TypesenseManager\:\:getCollections\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\TypesenseManager\:\:getConnection\(\) should return Typesense\\Bundle\\DBAL\\Connection\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\TypesenseManager\:\:getConnections\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\ORM\\TypesenseManager\:\:getFinder\(\) should return Typesense\\Bundle\\ORM\\TypesenseFinder\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Parameter \#1 \$metadata of class Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection constructor expects Typesense\\Bundle\\ORM\\Mapping\\TypesenseMetadata, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\TypesenseManager\:\:\$collections type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\TypesenseManager\:\:\$connections type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\TypesenseManager\:\:\$defaultConnection \(string\) does not accept string\|null\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\TypesenseManager\:\:\$finders type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\ORM\\TypesenseManager\:\:\$metadata has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/ORM/TypesenseManager.php
+
+		-
+			message: '#^Call to an undefined method object\:\:getConfiguration\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/TypesenseBundle.php
+
+		-
+			message: '#^Cannot call method addCustomNumericFunction\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/TypesenseBundle.php
+
+		-
+			message: '#^Cannot call method get\(\) on Symfony\\Component\\DependencyInjection\\ContainerInterface\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/TypesenseBundle.php
+
+		-
+			message: '#^Cannot call method has\(\) on Symfony\\Component\\DependencyInjection\\ContainerInterface\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/TypesenseBundle.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\TypesenseBundle\:\:getContainerExtension\(\) should return Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface\|null but returns Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface\|false\.$#'
+			identifier: return.type
+			count: 1
+			path: src/TypesenseBundle.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\TypesenseInterface\:\:__typesenseGetter\(\) has parameter \$propertyInfo with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/TypesenseInterface.php
+
+		-
+			message: '#^Cannot access offset string on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/aliases.php
+
+		-
+			message: '#^Parameter \#1 \$class of function class_exists expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/aliases.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\Tests\\Fixtures\\Attribute\\Book\:\:\$id \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: tests/Fixtures/Attribute/Book.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\Tests\\Fixtures\\Attribute\\Book\:\:\$summary \(string\|null\) is never assigned string so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: tests/Fixtures/Attribute/Book.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\Tests\\Fixtures\\Attribute\\Book\:\:\$tags \(Doctrine\\Common\\Collections\\Collection\<int, Typesense\\Bundle\\Tests\\Fixtures\\Attribute\\Tag\>\) does not accept Doctrine\\Common\\Collections\\ArrayCollection\<int\|string, Typesense\\Bundle\\Tests\\Fixtures\\Attribute\\Tag\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: tests/Fixtures/Attribute/Book.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\Tests\\Fixtures\\Attribute\\Tag\:\:\$id \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: tests/Fixtures/Attribute/Tag.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\Tests\\Fixtures\\Attribute\\Tag\:\:\$id is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: tests/Fixtures/Attribute/Tag.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Doctrine\\ORM\\Configuration and ''enableNativeLazyObj…'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: tests/Fixtures/EntityManagers.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Fixtures\\FixtureArticle\:\:__typesenseGetter\(\) has parameter \$propertyInfo with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Fixtures/FixtureArticle.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Fixtures\\FixtureTag\:\:__typesenseGetter\(\) has parameter \$propertyInfo with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Fixtures/FixtureArticle.php
+
+		-
+			message: '#^Parameter \#3 \$field of static method Typesense\\Bundle\\ORM\\Transformer\\PropertyReader\:\:read\(\) expects array\{type\?\: string\}, array given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/Fixtures/FixtureArticle.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\Tests\\Fixtures\\FixtureArticle\:\:\$tags with generic class Doctrine\\Common\\Collections\\ArrayCollection does not specify its types\: TKey, T$#'
+			identifier: missingType.generics
+			count: 1
+			path: tests/Fixtures/FixtureArticle.php
+
+		-
+			message: '#^Cannot access offset ''Novel'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Cannot access offset ''Science fiction'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Cannot access offset ''checked'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Cannot access offset ''count'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Cannot access offset ''counts'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 3
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Cannot access offset ''infix'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Cannot access offset ''rank'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Cannot access offset ''tagSlugs'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Cannot access offset ''tags'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 3
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Cannot access offset ''title'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Cannot access offset ''type'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Integration\\BareTest\:\:bare\(\) has parameter \$arguments with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Integration\\BareTest\:\:bare\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Integration\\BareTest\:\:framework\(\) has parameter \$report with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Integration\\BareTest\:\:framework\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Only iterables can be unpacked, mixed given\.$#'
+			identifier: arrayUnpacking.nonIterable
+			count: 2
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_keys expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_values expects array, array\|false given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Parameter \#1 \$callback of function array_map expects \(callable\(mixed\)\: mixed\)\|null, ''escapeshellarg'' given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of function preg_grep expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertContains\(\) expects iterable, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/BareTest.php
+
+		-
+			message: '#^Cannot access offset ''host'' on array\{scheme\?\: string, host\?\: string, port\?\: int\<0, 65535\>, user\?\: string, pass\?\: string, path\?\: string, query\?\: string, fragment\?\: string\}\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/CollectionPrefixTest.php
+
+		-
+			message: '#^Cannot access offset ''title'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/CollectionPrefixTest.php
+
+		-
+			message: '#^Cannot call method create\(\) on Typesense\\Collections\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Integration/CollectionPrefixTest.php
+
+		-
+			message: '#^Cannot call method retrieve\(\) on Typesense\\Collections\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Integration/CollectionPrefixTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Integration\\CollectionPrefixTest\:\:serverCollections\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Integration/CollectionPrefixTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Integration\\CollectionPrefixTest\:\:titles\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Integration/CollectionPrefixTest.php
+
+		-
+			message: '#^Offset ''hits'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Integration/CollectionPrefixTest.php
+
+		-
+			message: '#^Parameter \#1 \$callback of function array_map expects \(callable\(mixed\)\: mixed\)\|null, Closure\(array\)\: mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/CollectionPrefixTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of function array_map expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/CollectionPrefixTest.php
+
+		-
+			message: '#^Cannot access offset ''document'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/DocumentRoundTripTest.php
+
+		-
+			message: '#^Cannot access offset ''host'' on array\{scheme\?\: string, host\?\: string, port\?\: int\<0, 65535\>, user\?\: string, pass\?\: string, path\?\: string, query\?\: string, fragment\?\: string\}\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/DocumentRoundTripTest.php
+
+		-
+			message: '#^Cannot access offset ''id'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/DocumentRoundTripTest.php
+
+		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/DocumentRoundTripTest.php
+
+		-
+			message: '#^Using nullsafe method call on non\-nullable type Typesense\\Collection\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: tests/Integration/DocumentRoundTripTest.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: tests/Integration/FacetTest.php
+
+		-
+			message: '#^Cannot access offset ''counts'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/FacetTest.php
+
+		-
+			message: '#^Cannot access offset ''field_name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/FacetTest.php
+
+		-
+			message: '#^Cannot access offset ''host'' on array\{scheme\?\: string, host\?\: string, port\?\: int\<0, 65535\>, user\?\: string, pass\?\: string, path\?\: string, query\?\: string, fragment\?\: string\}\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/FacetTest.php
+
+		-
+			message: '#^Offset ''facet_counts'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Integration/FacetTest.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_column expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/FacetTest.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 2
+			path: tests/Integration/FacetTest.php
+
+		-
+			message: '#^Cannot access offset ''document'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/InfixTest.php
+
+		-
+			message: '#^Cannot access offset ''host'' on array\{scheme\?\: string, host\?\: string, port\?\: int\<0, 65535\>, user\?\: string, pass\?\: string, path\?\: string, query\?\: string, fragment\?\: string\}\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/InfixTest.php
+
+		-
+			message: '#^Cannot access offset ''id'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/InfixTest.php
+
+		-
+			message: '#^Cannot access offset ''infix'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/InfixTest.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/InfixTest.php
+
+		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/InfixTest.php
+
+		-
+			message: '#^Offset ''found'' might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Integration/InfixTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of function array_map expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/InfixTest.php
+
+		-
+			message: '#^Call to an undefined method object\:\:clear\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Call to an undefined method object\:\:flush\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Call to an undefined method object\:\:getMetadataFactory\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Call to an undefined method object\:\:persist\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Call to an undefined method object\:\:query\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Cannot call method delete\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Cannot call method getAllMetadata\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Cannot call method getHealth\(\) on Typesense\\Bundle\\DBAL\\Connection\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Cannot call method getResults\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Cannot call method metadata\(\) on Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Cannot call method raw\(\) on Typesense\\Bundle\\ORM\\TypesenseFinder\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_values expects array, array\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Parameter \#1 \$callback of function array_map expects \(callable\(mixed\)\: mixed\)\|null, Closure\(Typesense\\Bundle\\Tests\\Fixtures\\Attribute\\Book\)\: string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Parameter \#1 \$classes of method Doctrine\\ORM\\Tools\\SchemaTool\:\:createSchema\(\) expects list\<Doctrine\\ORM\\Mapping\\ClassMetadata\>, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Parameter \#1 \$em of class Doctrine\\ORM\\Tools\\SchemaTool constructor expects Doctrine\\ORM\\EntityManagerInterface, object given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Parameter \#1 \$kernel of class Symfony\\Bundle\\FrameworkBundle\\Console\\Application constructor expects Symfony\\Component\\HttpKernel\\KernelInterface, Symfony\\Component\\HttpKernel\\KernelInterface\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of function array_map expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/SymfonyApplicationTest.php
+
+		-
+			message: '#^Cannot access offset ''book'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/Attribute/AttributeReaderTest.php
+
+		-
+			message: '#^Cannot access offset ''infix'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/Attribute/AttributeReaderTest.php
+
+		-
+			message: '#^Cannot access offset ''optional'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/Attribute/AttributeReaderTest.php
+
+		-
+			message: '#^Cannot access offset ''token_separators'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/Attribute/AttributeReaderTest.php
+
+		-
+			message: '#^Cannot access offset ''typesense'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/Attribute/AttributeReaderTest.php
+
+		-
+			message: '#^Cannot call method toArray\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/Attribute/AttributeReaderTest.php
+
+		-
+			message: '#^Cannot use array destructuring on list\<array\<string, mixed\>\|string\>\|null\.$#'
+			identifier: offsetAccess.nonArray
+			count: 1
+			path: tests/Unit/Attribute/AttributeReaderTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Unit\\Attribute\\AttributeReaderTest\:\:configured\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/Attribute/AttributeReaderTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Unit\\Attribute\\AttributeReaderTest\:\:configured\(\) should return array but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: tests/Unit/Attribute/AttributeReaderTest.php
+
+		-
+			message: '#^Offset 1 might not exist on array\{string, array\<string, mixed\>\}\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Attribute/AttributeReaderTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of function array_map expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Unit/Attribute/AttributeReaderTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\|ArrayAccess, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Unit/Attribute/AttributeReaderTest.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\Tests\\Unit\\Command\\CreateCommandTest\:\:\$swept type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/Command/CreateCommandTest.php
+
+		-
+			message: '#^Cannot call method expects\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 8
+			path: tests/Unit/DBAL/TransactionTest.php
+
+		-
+			message: '#^Cannot call method method\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 10
+			path: tests/Unit/DBAL/TransactionTest.php
+
+		-
+			message: '#^Cannot call method willReturn\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Unit/DBAL/TransactionTest.php
+
+		-
+			message: '#^Cannot call method with\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 4
+			path: tests/Unit/DBAL/TransactionTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Unit\\DBAL\\TransactionTest\:\:makeCollectionWithDocuments\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/DBAL/TransactionTest.php
+
+		-
+			message: '#^Parameter \#1 \$collection of class Typesense\\Bundle\\DBAL\\Transaction constructor expects Typesense\\Bundle\\ORM\\Mapping\\TypesenseCollection, mixed given\.$#'
+			identifier: argument.type
+			count: 7
+			path: tests/Unit/DBAL/TransactionTest.php
+
+		-
+			message: '#^Call to an undefined method object\:\:process\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/Unit/DependencyInjection/Compiler/CompilerPassesTest.php
+
+		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Unit/DependencyInjection/Compiler/CompilerPassesTest.php
+
+		-
+			message: '#^Cannot use array destructuring on mixed\.$#'
+			identifier: offsetAccess.nonArray
+			count: 2
+			path: tests/Unit/DependencyInjection/Compiler/CompilerPassesTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Unit\\DependencyInjection\\Compiler\\CompilerPassesTest\:\:passProvider\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/DependencyInjection/Compiler/CompilerPassesTest.php
+
+		-
+			message: '#^Parameter \#1 \$name of method Symfony\\Component\\DependencyInjection\\Definition\:\:addTag\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 3
+			path: tests/Unit/DependencyInjection/Compiler/CompilerPassesTest.php
+
+		-
+			message: '#^Part \$method \(mixed\) of encapsed string cannot be cast to string\.$#'
+			identifier: encapsedStringPart.nonString
+			count: 1
+			path: tests/Unit/DependencyInjection/Compiler/CompilerPassesTest.php
+
+		-
+			message: '#^Cannot access offset ''article'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 5
+			path: tests/Unit/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Cannot access offset ''class'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Cannot access offset ''connection'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Cannot access offset ''fields'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Cannot access offset ''host'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Unit/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Cannot access offset ''options'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Cannot access offset ''primary'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Unit/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Cannot access offset ''secondary'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Cannot access offset ''symbols_to_index'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Cannot access offset ''title'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Cannot access offset ''token_separators'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Cannot access offset ''type'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Unit\\DependencyInjection\\ConfigurationTest\:\:process\(\) has parameter \$configs with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Unit\\DependencyInjection\\ConfigurationTest\:\:process\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/DependencyInjection/ConfigurationTest.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/ORM/Mapping/TypesenseCollectionTest.php
+
+		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/ORM/Mapping/TypesenseCollectionTest.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_column expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Unit/ORM/Mapping/TypesenseCollectionTest.php
+
+		-
+			message: '#^Cannot access offset ''infix'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Unit/ORM/Mapping/TypesenseMetadataTest.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/ORM/Mapping/TypesenseMetadataTest.php
+
+		-
+			message: '#^Cannot access offset ''state'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/ORM/Mapping/TypesenseMetadataTest.php
+
+		-
+			message: '#^Cannot access offset ''title'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/ORM/Mapping/TypesenseMetadataTest.php
+
+		-
+			message: '#^Cannot call method getCollectionName\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/ORM/Mapping/TypesenseMetadataTest.php
+
+		-
+			message: '#^Cannot call method getConfiguration\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/ORM/Mapping/TypesenseMetadataTest.php
+
+		-
+			message: '#^Cannot call method getName\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/ORM/Mapping/TypesenseMetadataTest.php
+
+		-
+			message: '#^Cannot call method getRootName\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Unit/ORM/Mapping/TypesenseMetadataTest.php
+
+		-
+			message: '#^Cannot call method toArray\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Unit/ORM/Mapping/TypesenseMetadataTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Unit\\ORM\\Mapping\\TypesenseMetadataTest\:\:makeConfiguration\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/ORM/Mapping/TypesenseMetadataTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Unit\\ORM\\Mapping\\TypesenseMetadataTest\:\:makeTransformer\(\) has parameter \$classMetadata with generic class Doctrine\\ORM\\Mapping\\ClassMetadata but does not specify its types\: T$#'
+			identifier: missingType.generics
+			count: 1
+			path: tests/Unit/ORM/Mapping/TypesenseMetadataTest.php
+
+		-
+			message: '#^Cannot access offset ''category'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Unit/ORM/Query/ResponseTest.php
+
+		-
+			message: '#^Cannot access offset ''checked'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Unit/ORM/Query/ResponseTest.php
+
+		-
+			message: '#^Cannot access offset ''counts'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 6
+			path: tests/Unit/ORM/Query/ResponseTest.php
+
+		-
+			message: '#^Cannot access offset ''value'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Unit/ORM/Query/ResponseTest.php
+
+		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 6
+			path: tests/Unit/ORM/Query/ResponseTest.php
+
+		-
+			message: '#^Cannot access offset 1 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Unit/ORM/Query/ResponseTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Unit\\ORM\\Query\\ResponseTest\:\:makeResult\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/ORM/Query/ResponseTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) expects array\|ArrayAccess, mixed given\.$#'
+			identifier: argument.type
+			count: 3
+			path: tests/Unit/ORM/Query/ResponseTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of method PHPUnit\\Framework\\Assert\:\:assertCount\(\) expects Countable\|iterable, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Unit/ORM/Query/ResponseTest.php
+
+		-
+			message: '#^Offset 1 might not exist on array\{string, array\<string, mixed\>\}\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/ORM/Transformer/EntityTransformerTest.php
+
+		-
+			message: '#^Cannot access property \$title on Typesense\\Bundle\\Tests\\Fixtures\\FixtureArticle\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Unit/ORM/Transformer/PropertyReaderTest.php
+
+		-
+			message: '#^Cannot access offset ''a\-tag'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/ORM/TypesenseFinderTest.php
+
+		-
+			message: '#^Cannot access offset ''counts'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Unit/ORM/TypesenseFinderTest.php
+
+		-
+			message: '#^Cannot access offset ''tags'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Unit/ORM/TypesenseFinderTest.php
+
+		-
+			message: '#^Method Typesense\\Bundle\\Tests\\Unit\\ORM\\TypesenseFinderTest\:\:makeFinder\(\) has parameter \$result with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Unit/ORM/TypesenseFinderTest.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_keys expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Unit/ORM/TypesenseFinderTest.php
+
+		-
+			message: '#^Property Typesense\\Bundle\\Tests\\Unit\\ORM\\TypesenseFinderTest\:\:\$searches \(list\<array\<string, mixed\>\>\) does not accept non\-empty\-list\<array\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: tests/Unit/ORM/TypesenseFinderTest.php
+
+		-
+			message: '#^Cannot call method addPsr4\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/bare.php
+
+		-
+			message: '#^Cannot call method toArray\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/bare.php
+
+		-
+			message: '#^Cannot use array destructuring on list\<array\<string, mixed\>\|string\>\|null\.$#'
+			identifier: offsetAccess.nonArray
+			count: 1
+			path: tests/bare.php
+
+		-
+			message: '#^Parameter \#1 \$callback of function array_map expects \(callable\(mixed\)\: mixed\)\|null, Closure\(Typesense\\Bundle\\Tests\\Fixtures\\Attribute\\Book\)\: string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/bare.php
+
+		-
+			message: '#^Parameter \#1 \$object of method Doctrine\\ORM\\EntityManager\:\:remove\(\) expects object, Typesense\\Bundle\\Tests\\Fixtures\\Attribute\\Book\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/bare.php
+
+		-
+			message: '#^Parameter \#2 \$array of function array_map expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/bare.php
