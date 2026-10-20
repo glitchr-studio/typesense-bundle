@@ -42,6 +42,9 @@
   `Query::infix()` was never sent with more than one `query_by` field.
 - `TypesenseFinder::facet()` asked for a facet field named "always" and
   always returned no facet.
+- `Query::facetBy()` cut or padded its fields to the number of `query_by`
+  fields: "tags,state" over `query_by` "state" asked for "tags" only (and
+  three facets over two fields lost the third). The fields go as given.
 - An entity without inheritance got a field named "" (no discriminator
   column); an entity without a second-level cache region failed to hydrate
   (`setCacheRegion(null)` on doctrine/orm 3); an identifier without a

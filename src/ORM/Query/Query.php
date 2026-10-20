@@ -111,11 +111,17 @@ class Query extends Request
 
     /**
      * A list of fields that will be used for faceting your results on. Separate multiple fields with a comma.
+     *
+     * The fields as given, whatever the number of query_by fields: facet_by
+     * does not go field by field with query_by as infix does. It used to be
+     * cut or padded to that number, so "tags,state" over query_by "state"
+     * asked only for "tags".
      */
     public function facetBy(array|string $facetBy): self
     {
-        $facetBy = $this->normalizeString($facetBy);
-        return $this->addHeader(self::FACET_BY, $facetBy);
+        $fields = array_values(array_filter(array_map('trim', is_array($facetBy) ? $facetBy : explode(',', $facetBy)), fn (string $field) => '' !== $field));
+
+        return $this->addHeader(self::FACET_BY, implode(',', $fields));
     }
 
     private function normalizeString(array|string $value): string

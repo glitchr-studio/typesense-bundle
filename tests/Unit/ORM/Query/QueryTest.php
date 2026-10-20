@@ -120,25 +120,27 @@ class QueryTest extends TestCase
     }
 
     /**
-     * facetBy()/infix() run their value through normalizeString(), which
-     * pads/repeats the input to match getNumFields() (the number of
-     * query_by fields) — a single facet field gets repeated once per
-     * query_by field.
+     * facet_by names the fields to count, whatever the number of query_by
+     * fields: facetBy() sends them as given (it used to cut or pad them to
+     * that number - "tags,state" over query_by "state" asked for "tags" only).
      */
-    public function testFacetByIsPaddedToMatchTheNumberOfQueryByFields(): void
+    public function testFacetBySendsTheFieldsAsGiven(): void
     {
         $query = new Query(['title', 'content']);
         $query->facetBy('category');
 
-        $this->assertSame('category,category', $query->getHeader(Query::FACET_BY));
+        $this->assertSame('category', $query->getHeader(Query::FACET_BY));
     }
 
-    public function testFacetByWithEnoughFieldsIsTruncatedNotPadded(): void
+    public function testFacetByKeepsEveryFieldOverFewerQueryByFields(): void
     {
-        $query = new Query(['title', 'content']);
-        $query->facetBy(['category', 'state', 'tags']);
+        $query = new Query('state');
+        $query->facetBy(['tags', 'state']);
+        $this->assertSame('tags,state', $query->getHeader(Query::FACET_BY));
 
-        $this->assertSame('category,state', $query->getHeader(Query::FACET_BY));
+        $query = new Query(['title', 'content']);
+        $query->facetBy('category, state ,tags');
+        $this->assertSame('category,state,tags', $query->getHeader(Query::FACET_BY));
     }
 
     public function testInfixOnlyAcceptsTheDocumentedValues(): void
