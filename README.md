@@ -49,6 +49,11 @@ $response->getResults();   // Article entities, in the order of the hits
   attributes and one from the configuration side by side, `typesense:create`,
   the listener, a finder, `typesense:list`); the attributes give the very
   mapping and schema the configuration does (`Unit/Attribute`).
+- Verified on an application: glitchr's lesringostars (Typesense 30.0)
+  runs on it, four of its collections declared through omniscient/omnisearch
+  (whose omnisearch/typesense builds this package's metadata from its
+  attributes) and one in its configuration: the schemas it would create are
+  those its server holds, its 628 documents and its blog's searches unchanged.
 - Not verified: Typesense's multi-node clusters; PostgreSQL (the order of
   the hydrated hits no longer depends on MySQL's `FIELD()`, but only SQLite
   and MySQL were run); doctrine/orm 2.x (the constraint allows it, 3.7 is
