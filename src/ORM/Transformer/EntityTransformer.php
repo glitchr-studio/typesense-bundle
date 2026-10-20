@@ -114,7 +114,7 @@ class EntityTransformer extends AbstractTransformer
 
         switch ($originalType . ':' . $castedType) {
             case self::TYPE_DATETIME . ':' . self::TYPE_INT64:
-                if ($value instanceof \DateTime) {
+                if ($value instanceof \DateTimeInterface) {
                     return $value->getTimestamp();
                 }
 

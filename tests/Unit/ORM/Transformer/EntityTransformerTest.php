@@ -41,4 +41,18 @@ class EntityTransformerTest extends TestCase
         $this->expectExceptionMessage('is not supported');
         $transformer->convert(new Tag('a', 'a'));
     }
+
+    /**
+     * A datetime field is a timestamp - of a \DateTime, and of a
+     * \DateTimeImmutable, which used to give 0 (every immutable date the same).
+     */
+    public function testAnImmutableDateIsATimestampToo(): void
+    {
+        $transformer = new EntityTransformer(EntityManagers::sqlite());
+        $transformer->addMapping(new TypesenseMetadata('book', ['class' => Book::class, 'fields' => ['at' => ['type' => 'datetime']]], $transformer));
+
+        $this->assertSame(1700000000, $transformer->get(Book::class, 'at', new \DateTimeImmutable('@1700000000')));
+        $this->assertSame(1700000000, $transformer->get(Book::class, 'at', new \DateTime('@1700000000')));
+        $this->assertSame(0, $transformer->get(Book::class, 'at', null));
+    }
 }
