@@ -50,7 +50,7 @@ $response->getResults();   // Article entities, in the order of the hits
   the listener, a finder, `typesense:list`); the attributes give the very
   mapping and schema the configuration does (`Unit/Attribute`).
 - Verified on an application: glitchr's lesringostars (Typesense 30.0)
-  runs on it, four of its collections declared through omniscient/omnisearch
+  runs on it, four of its collections declared through omnisense/omnisearch
   (whose omnisearch/typesense builds this package's metadata from its
   attributes) and one in its configuration: the schemas it would create are
   those its server holds, its 628 documents and its blog's searches unchanged.

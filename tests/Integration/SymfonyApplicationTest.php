@@ -45,7 +45,7 @@ final class SymfonyApplicationTest extends KernelTestCase
         if ('glitchr/typesense-bundle' !== InstalledVersions::getRootPackage()['name']) {
             $this->markTestSkipped('Installed in an application: its packages are its own.');
         }
-        $this->assertSame([], array_values(preg_grep('~^(?:omni|glitchr/omni|omniscient/)~', InstalledVersions::getInstalledPackages())));
+        $this->assertSame([], array_values(preg_grep('~^(?:omni|glitchr/omni|omnisense/)~', InstalledVersions::getInstalledPackages())));
     }
 
     public function testAttributesAndConfigurationAreIndexedOnFlushAndFound(): void
