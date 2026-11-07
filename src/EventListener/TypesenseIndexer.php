@@ -17,10 +17,13 @@ use Typesense\Bundle\ORM\Mapping\TypesenseCollection;
 use Typesense\Bundle\ORM\TypesenseManager;
 
 /**
- * The indexing rule, on Doctrine's events: an object of a mapped class is
+ * The indexing rule (persisted(), updated(), removing(), removed(), flush()),
+ * and its adapter on Doctrine's events: an object of a mapped class is
  * upserted into each collection that supports it once it is persisted or
  * updated, and deleted from them once it is removed, all of it when the
  * unit of work is flushed; then the finders' cached responses are cleared.
+ * Another persistence calls the same rule: omnisense/omnibridge's Lifecycle
+ * events through Bridge\Omnibridge\LifecycleIndexer (omnibridge/eloquent).
  *
  * Any Doctrine EventManager can carry it (Symfony's doctrine-bundle does
  * it through the bundle's services; by hand: $eventManager->addEventListener
@@ -77,37 +80,44 @@ class TypesenseIndexer
         return array_values(array_filter($this->typesenseManager->getCollections(), fn (TypesenseCollection $collection) => $collection->supports($object)));
     }
 
-    public function postPersist(LifecycleEventArgs $args)
+    /**
+     * The rule, whichever persistence calls it (Doctrine's events below; omnisense/omnibridge's Lifecycle events
+     * through Bridge\Omnibridge\LifecycleIndexer): an object of a mapped class, once saved the first time.
+     */
+    public function persisted(object $object): void
     {
-        $object = $args->getObject();
         foreach ($this->collectionsOf($object) as $collection) {
             $this->transactions[] = new Transaction($collection, Transaction::PERSIST, $object);
         }
     }
 
-    public function postUpdate(LifecycleEventArgs $args)
+    /** An object of a mapped class, once a change of it is saved. */
+    public function updated(object $object): void
     {
-        $object = $args->getObject();
         foreach ($this->collectionsOf($object) as $collection) {
             $this->transactions[] = new Transaction($collection, Transaction::UPDATE, $object);
         }
     }
 
-    public function preRemove(LifecycleEventArgs $args)
+    /**
+     * An object of a mapped class about to be deleted: its identifier taken while it still has one - getId(), else
+     * what $identifier answers (the persistence's).
+     *
+     * @param ?\Closure(object): mixed $identifier
+     */
+    public function removing(object $object, ?\Closure $identifier = null): void
     {
-        $object = $args->getObject();
         if (!$this->collectionsOf($object)) {
             return;
         }
 
-        $this->objectIds[spl_object_hash($object)] = method_exists($object, 'getId')
-            ? (string) $object->getId()
-            : (string) implode('-', $args->getObjectManager()->getClassMetadata($object::class)->getIdentifierValues($object));
+        $id = method_exists($object, 'getId') ? $object->getId() : (null !== $identifier ? $identifier($object) : null);
+        $this->objectIds[spl_object_hash($object)] = \is_array($id) ? implode('-', $id) : (string) $id;
     }
 
-    public function postRemove(LifecycleEventArgs $args)
+    /** The object removing() saw, once deleted: its documents removed. */
+    public function removed(object $object): void
     {
-        $object = $args->getObject();
         $objectHash = spl_object_hash($object);
         if (!isset($this->objectIds[$objectHash])) {
             return;
@@ -116,27 +126,67 @@ class TypesenseIndexer
         foreach ($this->collectionsOf($object) as $collection) {
             $this->transactions[] = new Transaction($collection, Transaction::REMOVE, $this->objectIds[$objectHash]);
         }
+        unset($this->objectIds[$objectHash]);
     }
 
-    protected $first = true;
-
-    public function postFlush(PostFlushEventArgs $args)
+    /**
+     * Once the persistence has committed: what was queued sent, then the finders' cached responses cleared. A failure
+     * to reach the server goes to $onError once per flush; the queue is emptied either way, so the next flush sends
+     * only its own writes.
+     */
+    public function flush(): void
     {
-        foreach ($this->transactions as $transaction) {
+        $transactions = $this->transactions;
+        $this->transactions = [];
+        $first = true;
+        foreach ($transactions as $transaction) {
             try {
                 $transaction->commit();
             } catch (TypesenseException|NetworkException $e) {
-                if ($this->first) {
+                if ($first) {
                     if ($this->onError) {
                         ($this->onError)($e);
                     }
-                    $this->first = false;
+                    $first = false;
                 }
             }
         }
 
-        if ($this->transactions) {
+        if ($transactions) {
             $this->cache->clear();
         }
+    }
+
+    /** What was queued forgotten (a rollback). */
+    public function clear(): void
+    {
+        $this->transactions = [];
+        $this->objectIds = [];
+    }
+
+    public function postPersist(LifecycleEventArgs $args)
+    {
+        $this->persisted($args->getObject());
+    }
+
+    public function postUpdate(LifecycleEventArgs $args)
+    {
+        $this->updated($args->getObject());
+    }
+
+    public function preRemove(LifecycleEventArgs $args)
+    {
+        $manager = $args->getObjectManager();
+        $this->removing($args->getObject(), static fn (object $object): array => $manager->getClassMetadata($object::class)->getIdentifierValues($object));
+    }
+
+    public function postRemove(LifecycleEventArgs $args)
+    {
+        $this->removed($args->getObject());
+    }
+
+    public function postFlush(PostFlushEventArgs $args)
+    {
+        $this->flush();
     }
 }

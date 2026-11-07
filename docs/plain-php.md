@@ -43,5 +43,15 @@ $books = $finder->query((new Query('title', 'dune'))->sortBy('rank:asc'))->getRe
 declared there with `#[Collection]`, by key.
 
 `TypesenseFinder` takes `(collection, bool $debug = false, ?CacheInterface $cache = null)`,
+On omnibridge/eloquent (omnisense/omnibridge's Lifecycle events), the same indexer through its adapter:
+
+```php
+use Typesense\Bundle\Bridge\Omnibridge\LifecycleIndexer;
+
+$persistence = Omnibridge\Eloquent\Omnibase\EloquentPersistence::create($connection, [
+    'listeners' => [new LifecycleIndexer(new TypesenseIndexer($manager))],
+]);
+```
+
 `TypesenseIndexer` `(manager, ?callable $onError = null, ?CacheInterface $cache = null)` -
 pass the finders' cache to the indexer to have it cleared after indexing.

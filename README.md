@@ -12,8 +12,14 @@ DBAL/ORM split - in plain PHP first, with a Symfony bundle:
 - `ORM/Query/` - a fluent `Request`/`Query` builder and `Response` wrapper.
 - `ORM/Transformer/` - entity -> document (`PropertyReader`: property paths,
   collections flattened) and the finders' document -> entity.
-- `EventListener/TypesenseIndexer` - the indexing rule on Doctrine's events,
-  on any `EventManager`.
+- `EventListener/TypesenseIndexer` - the indexing rule (`persisted()`,
+  `updated()`, `removing()`, `removed()`, `flush()`) and its adapter on
+  Doctrine's events, on any `EventManager`.
+- `Bridge/Omnibridge/LifecycleIndexer` - the same rule on omnisense/omnibridge's
+  Lifecycle events, for another persistence than Doctrine's (omnibridge/eloquent);
+  tagged `omnibridge.lifecycle_listener` by the bundle where omnisense/omnibridge
+  is installed, so the index follows the writes whichever persistence a site
+  runs on.
 - `Bridge/Symfony/` - the bundle's configuration, services, the Doctrine
   listener's wiring and the `typesense:*` commands (`TypesenseBundle` itself
   stays at the root of the resources).

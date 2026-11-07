@@ -28,12 +28,14 @@
         "symfony/console": "^5.4|^6.0|^7.0|^8.0",
         "symfony/framework-bundle": "^5.4|^6.0|^7.0|^8.0",
         "symfony/phpunit-bridge": "^5.0|^6.0|^7.0|^8.0",
-        "symfony/yaml": "^5.4|^6.0|^7.0|^8.0"
+        "symfony/yaml": "^5.4|^6.0|^7.0|^8.0",
+        "omnisense/omnibridge": "1.x-dev"
     },
     "suggest": {
         "symfony/framework-bundle": "In a Symfony application: Typesense\\Bundle\\TypesenseBundle, its configuration and services",
         "doctrine/doctrine-bundle": "In a Symfony application: the Doctrine indexer registered on the default entity manager",
-        "symfony/console": "In a Symfony application: the typesense:* commands"
+        "symfony/console": "In a Symfony application: the typesense:* commands",
+        "omnisense/omnibridge": "Another persistence than Doctrine's (omnibridge/eloquent): Bridge\\Omnibridge\\LifecycleIndexer indexes its writes from omnisense/omnibridge's Lifecycle events, tagged omnibridge.lifecycle_listener by the Symfony bundle"
     },
     "autoload": {
         "psr-4": { "Typesense\\Bundle\\": "src/" },

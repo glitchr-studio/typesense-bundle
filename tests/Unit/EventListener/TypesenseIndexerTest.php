@@ -109,4 +109,19 @@ class TypesenseIndexerTest extends TestCase
 
         $this->assertSame(['Typesense 503: Not Ready or Lagging'], $session->getFlashBag()->get('warning'));
     }
+
+    /** Each flush handles its own writes: a failure reported at each flush, the cache cleared only after writes. */
+    public function testEachFlushHandlesOnlyItsOwnWrites(): void
+    {
+        $errors = [];
+        $cache = $this->createMock(CacheInterface::class);
+        $cache->expects($this->exactly(2))->method('clear');
+        $indexer = new TypesenseIndexer($this->manager(true), function (\Throwable $e) use (&$errors) { $errors[] = $e->getCode(); }, $cache);
+
+        $this->flush($indexer, new Book('Dune', 7));
+        $this->flush($indexer, new Book('Emma', 8));
+        $this->flush($indexer);
+
+        $this->assertSame([503, 503], $errors);
+    }
 }

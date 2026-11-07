@@ -11,6 +11,7 @@ use Typesense\Bundle\ORM\Mapping\TypesenseMetadata;
 use Typesense\Bundle\ORM\Mapping\TypesenseCollection;
 use Typesense\Bundle\ORM\TypesenseFinder;
 use Typesense\Bundle\EventListener\TypesenseIndexer;
+use Typesense\Bundle\Bridge\Omnibridge\LifecycleIndexer;
 use Typesense\Bundle\Bridge\Symfony\Command\CreateCommand;
 use Typesense\Bundle\Bridge\Symfony\Command\ListCommand;
 use Typesense\Bundle\Bridge\Symfony\Command\HealthCommand;
@@ -95,6 +96,23 @@ return static function (ContainerConfigurator $configurator): void {
             service('typesense.indexing_warning'),
             service('typesense.cache'),
         ]);
+
+    # The same rule on omnisense/omnibridge's Lifecycle events, where it is installed: what another persistence
+    # (omnibridge/eloquent) writes reaches the index too. Its own indexer, so that each persistence's flush sends
+    # its own writes; the host hands it the events by the tag (omnibridge/symfony, omnibridge/laravel).
+    if (class_exists(\Omnibridge\Persistence\Lifecycle\PostFlush::class)) {
+        $services->set('typesense.indexer.lifecycle', TypesenseIndexer::class)
+            ->private()
+            ->args([
+                service('typesense_manager'),
+                service('typesense.indexing_warning'),
+                service('typesense.cache'),
+            ]);
+        $services->set('typesense.listener.lifecycle_indexer', LifecycleIndexer::class)
+            ->private()
+            ->args([service('typesense.indexer.lifecycle')])
+            ->tag(LifecycleIndexer::TAG);
+    }
 
     # A failure to index, as a warning in the session's flash bag
     $services->set('typesense.indexing_warning', IndexingWarning::class)

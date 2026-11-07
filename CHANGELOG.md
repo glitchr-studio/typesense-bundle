@@ -1,5 +1,25 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- `Bridge\Omnibridge\LifecycleIndexer` (omnisense/omnibase's plan "omnibase agnostic", step B2): the indexing rule on
+  omnisense/omnibridge's Lifecycle events, so that what another persistence than Doctrine's writes (omnibridge/eloquent,
+  a site on `base.persistence: eloquent`) reaches the index as Doctrine's writes do. The Symfony bundle registers it,
+  with an indexer of its own, where omnisense/omnibridge is installed, tagged `omnibridge.lifecycle_listener`
+  (omnisense/omnibridge's `Lifecycle\Listeners::TAG`), which omnibridge/symfony and omnibridge/laravel hand to the
+  persistence. omnisense/omnibridge is suggested (and required for development).
+- `TypesenseIndexer::persisted()`, `updated()`, `removing()`, `removed()`, `flush()`, `clear()`: the rule apart from
+  its Doctrine adapter (`postPersist()` ... `postFlush()` call them).
+
+### Fixed
+
+- A flush handles only its own writes: `postFlush()` kept every transaction it had committed (a long-running worker or
+  a test suite held them all, and cleared the finders' cache at every later flush, writes or not), and reported a
+  failure to reach the server at the first flush of the process only; now the queue is emptied at each flush and
+  `$onError` is called once per flush, as documented.
+
 ## 2.0 - the framework-free root (October 2026)
 
 ### Changed
