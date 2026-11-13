@@ -24,12 +24,12 @@
     },
     "require-dev": {
         "doctrine/doctrine-bundle": "^2.0|^3.0",
+        "omnisense/omnibridge": "^1.0",
         "phpunit/phpunit": "^9.5",
         "symfony/console": "^5.4|^6.0|^7.0|^8.0",
         "symfony/framework-bundle": "^5.4|^6.0|^7.0|^8.0",
         "symfony/phpunit-bridge": "^5.0|^6.0|^7.0|^8.0",
-        "symfony/yaml": "^5.4|^6.0|^7.0|^8.0",
-        "omnisense/omnibridge": "1.x-dev"
+        "symfony/yaml": "^5.4|^6.0|^7.0|^8.0"
     },
     "suggest": {
         "symfony/framework-bundle": "In a Symfony application: Typesense\\Bundle\\TypesenseBundle, its configuration and services",
@@ -44,6 +44,11 @@
     "autoload-dev": {
         "psr-4": {
             "Typesense\\Bundle\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-2.0": "2.0.x-dev"
         }
     },
     "config": {

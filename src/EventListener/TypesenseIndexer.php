@@ -112,7 +112,12 @@ class TypesenseIndexer
         }
 
         $id = method_exists($object, 'getId') ? $object->getId() : (null !== $identifier ? $identifier($object) : null);
-        $this->objectIds[spl_object_hash($object)] = \is_array($id) ? implode('-', $id) : (string) $id;
+        if (\is_array($id)) {
+            /** @var array<scalar|\Stringable|null> $parts a composite identifier */
+            $parts = $id;
+            $id = implode('-', $parts);
+        }
+        $this->objectIds[spl_object_hash($object)] = (string) $id;
     }
 
     /** The object removing() saw, once deleted: its documents removed. */

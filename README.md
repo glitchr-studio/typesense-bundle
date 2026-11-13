@@ -29,6 +29,20 @@ components (Cache, PropertyAccess); `symfony/framework-bundle`,
 `doctrine/doctrine-bundle` and `symfony/console` only in a Symfony
 application. Nothing of the omni* packages is needed.
 
+## Install
+
+```sh
+composer require glitchr/typesense-bundle
+```
+
+It needs a Typesense server of your own, no account anywhere; for a try,
+`docker run --rm -p 8108:8108 typesense/typesense:27.1 --data-dir /tmp --api-key=xyz`.
+In a Symfony application, Flex registers `Typesense\Bundle\TypesenseBundle`
+(otherwise add it to `config/bundles.php`) and `typesense:create` makes the
+collections; without a framework, [`docs/plain-php.md`](docs/plain-php.md)
+wires the same in about twenty lines. A class declares its collection, a
+finder searches it:
+
 ```php
 #[Collection('article', defaultSortingField: 'publishedAt')]
 #[Field('title', type: 'string', infix: true)]

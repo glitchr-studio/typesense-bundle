@@ -112,7 +112,7 @@ final class LifecycleIndexerTest extends TestCase
         $this->sent = [];
         $listener = new LifecycleIndexer($this->indexer());
         $unitOfWork = $this->createStub(UnitOfWork::class);
-        $unitOfWork->method('identifier')->willReturnCallback(static fn (object $entity) => $entity->getId());
+        $unitOfWork->method('identifier')->willReturnCallback(static fn (Book $entity): ?int => $entity->getId());
         foreach ([$dune, $emma, $tag] as $entity) {
             $listener(new PrePersist($entity, $unitOfWork));
         }

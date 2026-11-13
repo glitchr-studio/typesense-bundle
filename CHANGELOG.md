@@ -2,7 +2,26 @@
 
 ## Unreleased
 
-### Added
+## [2.0.0] - 2026-11-13
+
+The first release of the 2.0 branch (the 1.0 branch ended at 1.0.1). It breaks what the sections below say:
+`symfony/framework-bundle` and `doctrine/doctrine-bundle` are no longer required, the Symfony wiring moved to
+`Bridge/Symfony` (the old class names are aliases), constructor arguments changed (the former ones still
+accepted) and `typesense:create` no longer empties the whole server. Tags are `vX.Y.Z` from this release on.
+
+### The writes of other persistences (November 2026)
+
+#### Changed
+
+- `omnisense/omnibridge` is required for development at `^1.0` (stable) instead of `1.x-dev`; its 1.0.0 has
+  `Lifecycle\Listeners`, which a `1.x-dev` resolved before that class was published lacked (the red CI of
+  2026-11-07). `extra.branch-alias` names the branch: `dev-2.0` is `2.0.x-dev`.
+- `SymfonyApplicationTest` checks that no package of the omni* family is *required* (installed other than for
+  development) instead of none installed: omnisense/omnibridge is in require-dev since `LifecycleIndexer`.
+- PHPStan (level max, over its baseline) passes again: `TypesenseIndexer::removing()` joins a composite identifier's
+  parts through a typed variable (same string), `LifecycleIndexerTest`'s identifier callback is typed on `Book`.
+
+#### Added
 
 - `Bridge\Omnibridge\LifecycleIndexer` (omnisense/omnibase's plan "omnibase agnostic", step B2): the indexing rule on
   omnisense/omnibridge's Lifecycle events, so that what another persistence than Doctrine's writes (omnibridge/eloquent,
@@ -13,16 +32,16 @@
 - `TypesenseIndexer::persisted()`, `updated()`, `removing()`, `removed()`, `flush()`, `clear()`: the rule apart from
   its Doctrine adapter (`postPersist()` ... `postFlush()` call them).
 
-### Fixed
+#### Fixed
 
 - A flush handles only its own writes: `postFlush()` kept every transaction it had committed (a long-running worker or
   a test suite held them all, and cleared the finders' cache at every later flush, writes or not), and reported a
   failure to reach the server at the first flush of the process only; now the queue is emptied at each flush and
   `$onError` is called once per flush, as documented.
 
-## 2.0 - the framework-free root (October 2026)
+### The framework-free root (October 2026)
 
-### Changed
+#### Changed
 
 - The package runs without a framework: everything but `Bridge/Symfony` and
   `TypesenseBundle` is plain PHP on Doctrine, the Typesense client and the
@@ -44,7 +63,7 @@
   in DQL: any database. The bundle still registers `FIELD` where beberlei
   is installed.
 
-### Added
+#### Added
 
 - `#[Typesense\Bundle\Attribute\Collection]` and `#[Field]`: a class declares
   its collection itself (the same mapping as the configuration's, with its
@@ -56,7 +75,7 @@
   trait keep working (deprecated).
 - A field's `options` (sort, optional, locale...), sent with the schema.
 
-### Fixed
+#### Fixed
 
 - Infix: a field's `infix: true` was dropped from the schema, and
   `Query::infix()` was never sent with more than one `query_by` field.
@@ -70,9 +89,9 @@
   (`setCacheRegion(null)` on doctrine/orm 3); an identifier without a
   getter was read as empty: it is read through Doctrine's metadata.
 
-## 2.0 — October 2026
+### `typesense:create` scoped, `collection_prefix` (October 2026)
 
-### Changed (breaking for whoever relied on it)
+#### Changed (breaking for whoever relied on it)
 
 - `typesense:create` drops and recreates the collections of the configured
   mappings only. It used to start by deleting **every** collection found on
@@ -81,7 +100,7 @@
   no option to bring it back (the short-lived `--all` is removed too).
   See the README, "Upgrading: `typesense:create` used to empty the server".
 
-### Added
+#### Added
 
 - `typesense.collection_prefix` (string, empty by default): put in front of
   every collection name sent to the server — create, delete, indexing (the
@@ -93,7 +112,7 @@
   nothing has to be reindexed.
 - `typesense:list --collection` also accepts a mapping key.
 
-### Fixed
+#### Fixed
 
 - The bundle runs without glitchr/omnibase: `src/` called four of its global
   helpers (`str_strip()`, `is_cli()`, `usort_column()`, `first()`), undefined

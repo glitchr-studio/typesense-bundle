@@ -18,7 +18,7 @@ use Typesense\Bundle\Tests\Fixtures\Attribute\Tag;
 
 /**
  * The bundle in a plain Symfony application (tests/Application: framework,
- * doctrine, this bundle, nothing else of the omni* family installed): the
+ * doctrine, this bundle, nothing of the omni* family required): the
  * collections of the attributes and of the configuration, typesense:create,
  * the Doctrine listener indexing on flush, a finder hydrating entities,
  * typesense:list.
@@ -40,12 +40,22 @@ final class SymfonyApplicationTest extends KernelTestCase
         $_SERVER['TYPESENSE_KEY'] ??= getenv('TYPESENSE_KEY') ?: 'xyz';
     }
 
-    public function testNoPackageOfTheOmniFamilyIsInstalled(): void
+    public function testNoPackageOfTheOmniFamilyIsRequired(): void
     {
         if ('glitchr/typesense-bundle' !== InstalledVersions::getRootPackage()['name']) {
             $this->markTestSkipped('Installed in an application: its packages are its own.');
         }
-        $this->assertSame([], array_values(preg_grep('~^(?:omni|glitchr/omni|omnisense/)~', InstalledVersions::getInstalledPackages())));
+        // omnisense/omnibridge is in require-dev, for Bridge\Omnibridge's tests: what is installed only for
+        // development is not needed. Every package of the family must be one of those.
+        $needed = [];
+        foreach (InstalledVersions::getAllRawData() as $installed) {
+            foreach ($installed['versions'] as $name => $package) {
+                if (preg_match('~^(?:omni|glitchr/omni|omnisense/)~', $name) && !$package['dev_requirement']) {
+                    $needed[] = $name;
+                }
+            }
+        }
+        $this->assertSame([], array_values(array_unique($needed)));
     }
 
     public function testAttributesAndConfigurationAreIndexedOnFlushAndFound(): void
